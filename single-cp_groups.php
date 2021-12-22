@@ -20,6 +20,7 @@ get_header(); ?>
 		$location = get_post_meta( $post->ID, 'location', true );
 		// Check if the custom field has a value.
 		if ( ! empty( $location ) ) { ?>
+			<div id = "map" style = "width:200PX; height:380px"></div>
 			<div class="location">
 		    	<?php echo $location; ?>
 		    </div>
@@ -80,9 +81,25 @@ get_header(); ?>
 		// Check if the custom field has a value.
 		if ( ! empty( $sign_up_form ) ) { ?>
 			<div class="sign_up_form">
-		    	<?php echo do_shortcode( $sign_up_form ); ?>
+		    	<?php echo do_shortcode( '[gravityform id="'.$sign_up_form.'"]' ); ?>
 		    </div>
 		<?php } ?>
 </section>
-
+		<script>
+	         // Creating map options
+	         var mapOptions = {
+	            center: [17.385044, 78.486671],
+	            zoom: 15
+	         }
+	         var map = new L.map('map', mapOptions); // Creating a map object
+	         
+	         // Creating a Layer object
+	         var layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+	         map.addLayer(layer);         // Adding layer to the map
+	         var marker = L.marker([17.438139, 78.395830]);    // Creating a Marker
+	         
+	         // Adding popup to the marker
+	         marker.bindPopup('This is Tutorialspoint').openPopup();
+	         marker.addTo(map); // Adding marker to the map
+      	</script>
 <?php get_footer(); ?>
