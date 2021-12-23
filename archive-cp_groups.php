@@ -176,62 +176,25 @@ get_header(); ?>
 		 ?>
 	</section>
 </div>
-<script type="text/javascript">
-	// var locations = <?php echo json_encode($locations);?>;
-	// console.log (locations);
-	// var map = L.map('map').setView([11.206051, 122.447886], 8);
-	// 	mapLink =
-	// 	  '<a href="http://openstreetmap.org">OpenStreetMap</a>';
-	// 	L.tileLayer(
-	// 	  'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-	// 	    attribution: '&copy; ' + mapLink + ' Contributors',
-	// 	    maxZoom: 18,
-	// 	  }).addTo(map);
 
-	// 	for (var i = 0; i < locations.length; i++) {
-	// 	  marker = new L.marker([locations[i][1], locations[i][2]])
-	// 	    .bindPopup(locations[i][0])
-	// 	    .addTo(map);
-	// 	}
-			var maptarget;
-			var map;
-			var panorama;
-			//google.maps.event.addDomListener(window, 'load', initialize);
-
-											
-			jQuery(function($){ 	
-				window.addEventListener('load', initialize_yoart)					
-
-			});
-
-			function initialize_yoart() 
-			{
-				maptarget= new L.LatLng(17.385044, 78.486671);
-				var mapOptions = {
-					center: maptarget,
-					zoom: 14,
-				};
-				var map = L.map('maplist').setView(mapOptions.center, mapOptions.zoom);
-				
-				L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-				maxZoom: 18,
-				attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
-				}).addTo(map);
-				map.scrollWheelZoom.disable(); 
-					// 	var image = L.icon({
-					// 		iconUrl: 'https://www.youronlineagents.com/templates/version_0001/images/general/icons_misc/markers/home.png',
-					// 		iconSize: '32, 37',
-					// 		iconAnchor: '15, 35',
-					// 	});
-													
-					// var marker = L.marker( mapOptions.center, {icon: image, title: "19 PAULS BAY Road, Mcdougall, Ontario, P2A2W7 (ID 40146120)"});
-					// marker.addTo(map);
-					var marker = L.marker(mapOptions.center);    // Creating a Marker
-	         
-			         // Adding popup to the marker
-			         marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
-			         marker.addTo(map); 
-			}				
-			
-			</script>	
 <?php get_footer(); ?>
+<script type="text/javascript">
+	var locations = <?php echo json_encode($locations);?>;
+	var map = L.map('maplist').setView([11.206051, 122.447886], 8);
+		mapLink =
+		  '<a href="http://openstreetmap.org">OpenStreetMap</a>';
+		L.tileLayer(
+		  'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+		    attribution: '&copy; ' + mapLink + ' Contributors',
+		    maxZoom: 18,
+		  }).addTo(map);
+
+		for (var i = 0; i < locations.length; i++) {
+			//console.log (locations[i]);
+			parsedTest = JSON.parse(locations[i]); //an array [1,2]
+		  marker = new L.marker([parsedTest[1], parsedTest[2]])
+		    .bindPopup(locations[i][0])
+		    .addTo(map);
+		}
+			
+	</script>	
