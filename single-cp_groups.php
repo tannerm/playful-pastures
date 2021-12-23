@@ -113,14 +113,7 @@ get_header(); ?>
 		attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
 		}).addTo(map);
 		map.scrollWheelZoom.disable(); 
-			// 	var image = L.icon({
-			// 		iconUrl: 'https://www.youronlineagents.com/templates/version_0001/images/general/icons_misc/markers/home.png',
-			// 		iconSize: '32, 37',
-			// 		iconAnchor: '15, 35',
-			// 	});
-											
-			// var marker = L.marker( mapOptions.center, {icon: image, title: "19 PAULS BAY Road, Mcdougall, Ontario, P2A2W7 (ID 40146120)"});
-			// marker.addTo(map);
+			
 			var marker = L.marker(mapOptions.center);    // Creating a Marker
      
 	         // Adding popup to the marker

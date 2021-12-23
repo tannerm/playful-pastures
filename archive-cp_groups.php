@@ -104,13 +104,7 @@ get_header(); ?>
 		if ( $query->have_posts() ) {
 		    while ( $query->have_posts() ) {
 		        $query->the_post();
-		  //       var locations = [
-				//   ["LOCATION_1", 11.8166, 122.0942],
-				//   ["LOCATION_2", 11.9804, 121.9189],
-				//   ["LOCATION_3", 10.7202, 122.5621],
-				//   ["LOCATION_4", 11.3889, 122.6277],
-				//   ["LOCATION_5", 10.5929, 122.6325]
-				// ];
+		
 				$location_lat = get_post_meta( $post->ID, 'location_lat', true );
 				$location_long = get_post_meta( $post->ID, 'location_long', true );
 				$locations[] = '["LOCATION_'.$i.'", '.$location_lat.', '.$location_long.']';
@@ -180,20 +174,23 @@ get_header(); ?>
 <?php get_footer(); ?>
 <script type="text/javascript">
 	var locations = <?php echo json_encode($locations);?>;
-	var map = L.map('maplist').setView([11.206051, 122.447886], 8);
+	
+	centerarea = JSON.parse(locations[0]);
+	
+	var map = L.map('maplist').setView([centerarea[1], centerarea[2]], 8);
 		mapLink =
 		  '<a href="http://openstreetmap.org">OpenStreetMap</a>';
 		L.tileLayer(
 		  'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 		    attribution: '&copy; ' + mapLink + ' Contributors',
-		    maxZoom: 18,
+		    maxZoom: 5,
 		  }).addTo(map);
 
 		for (var i = 0; i < locations.length; i++) {
 			//console.log (locations[i]);
 			parsedTest = JSON.parse(locations[i]); //an array [1,2]
 		  marker = new L.marker([parsedTest[1], parsedTest[2]])
-		    .bindPopup(locations[i][0])
+		    .bindPopup(parsedTest[0])
 		    .addTo(map);
 		}
 			
