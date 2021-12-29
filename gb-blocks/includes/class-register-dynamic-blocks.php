@@ -45,6 +45,13 @@ if ( ! class_exists( 'Register_Dynamic_Blocks' ) ) {
 			 * @since 1.0.0
 			 */
 			$this->gbblock_single_article_block();
+
+			/**
+			 *  Latest Message block.
+			 *
+			 * @since 1.0.0
+			 */
+			$this->gbblock_letest_message_block();
 		}
 
 		/**
@@ -89,6 +96,17 @@ if ( ! class_exists( 'Register_Dynamic_Blocks' ) ) {
 			require_once GBBLOCK_PATH . 'includes/blocks/class-gbblock-single-article.php';
 			$gbblock_single_article_block = new GbBlock_Single_Article_Block();
 			$gbblock_single_article_block->load();
+		}
+
+		/**
+		 * Latest Message block.
+		 *
+		 * @since 1.0.0
+		 */
+		public function gbblock_letest_message_block() {
+			require_once GBBLOCK_PATH . 'includes/blocks/class-gbblock-latest-message.php';
+			$gbblock_latest_message_block = new GbBlock_Latest_Message_Block();
+			$gbblock_latest_message_block->load();
 		}
 
 	}

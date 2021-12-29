@@ -52,7 +52,7 @@ if ( ! class_exists( 'Include_Assets' ) ) {
 		 * @since 1.0.0
 		 */
 		public function gbblock_add_block_scripts() {
-		
+
 			wp_enqueue_script(
 				'gbblock-gutenberg-block',
 				GBBLOCK_URL . 'assets/blocks/build/block.build.js',
