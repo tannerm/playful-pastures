@@ -1,0 +1,21 @@
+@import "grid/variables";
+@import "grid/mixins";
+@import "variables-site/typography";
+
+$md-breakpoint: calc( map-get($grid-breakpoints, 'md') / 1px ); // convert breakpoint to number
+
+$lg-font-size: #{calc(16 / 1440 * 100)}vw; // 16px at 1440px screen width
+$md-font-size: #{calc(16 / $md-breakpoint * 100)}vw; // 16 pixels at medium breakpoint 
+$sm-font-size: #{calc(16 / 320 * 100)}vw; // 16 pixels at 320px screen width
+
+html {
+	font-size: var(--cp-font-size, $sm-font-size);
+	
+	@include media-breakpoint-up(md) {
+		font-size: var(--cp-font-size--bp-md, $md-font-size);
+	}
+
+	@include media-breakpoint-up(lg) {
+		font-size: var(--cp-font-size--bp-lg, $lg-font-size);
+	}
+}

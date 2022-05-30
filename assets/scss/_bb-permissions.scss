@@ -1,0 +1,176 @@
+%cp_restrict {
+	pointer-events: none;
+	border: 1px solid var(--cp-color-ui-danger);
+
+	&:before {
+		content: "LOCKED";
+		color: #FFFFFF;
+		text-align: center;
+		background-color: var(--cp-color-ui-danger);
+		border: 1px solid var(--cp-color-ui-danger);
+		padding: 5px 10px;
+		font-size: 12px;
+		font-weight: 600;
+		z-index: 999999;
+		position: absolute;
+		white-space: nowrap;
+	}
+}
+
+.fl-builder-edit {
+	&.role-administrator {
+		/* This adds a var(--cp-color-ui-danger) border so administrators know which areas they have blocked */
+		.fl-builder-content {
+			.permissions-role-administrator,
+			.permissions-role-editor,
+			.permissions-role-author,
+			.permissions-role-contributor,
+			.permissions-loc-core {
+				border: 1px dotted var(--cp-color-ui-danger);
+			}
+		} 
+	}
+
+	&.role-editor {
+		.fl-builder-content {
+			.permissions-role-administrator {
+				@extend %cp_restrict;
+			}
+		}
+	}
+
+	&.role-author {
+		.fl-builder-content {
+			.permissions-role-administrator,
+			.permissions-role-editor {
+				@extend %cp_restrict;
+			}
+		}
+	}
+
+	&.role-contributor {
+		.fl-builder-content {
+			.permissions-role-administrator,
+			.permissions-role-author,
+			.permissions-role-editor {
+				@extend %cp_restrict;
+			}
+		}
+	}
+
+	&.locations-restricted {
+
+		.fl-builder-content {
+			.permissions-loc-core {
+				@extend %cp_restrict;
+			}
+		}
+
+	}
+
+	.fl-builder-bar-title img {
+		display: none;
+	}
+	
+	// remove ui elements
+	&.role-editor,
+	&.role-author,
+	&.role-contributor {
+
+		.fl-builder-bar {
+			/** Removes Logo, buttons and module sections */
+
+
+			.fl-builder-bar-title {
+				display: none;
+			}
+
+			.fl-builder-help-button {
+				display: none;
+			}
+
+			.fl-builder-tools-button {
+				display: none;
+			}
+
+			.fl-builder-templates-button {
+				display: none;
+			}
+
+			/*Removes the Beaver Logo from the Toolbar*/
+			.fl-builder-bar-title img {
+				display: none;
+			}
+		}
+
+		/* This hides the editor tabs (style,advanced and any others from 3rd party add-ons)*/
+		.fl-builder-lightbox .fl-builder-module-settings .fl-builder-settings-tabs a:last-of-type {
+			display: none;
+		}
+		
+	//	.fl-builder-blocks #fl-builder-blocks-widgets {
+	//		display: none;
+	//	}
+	//
+	//	.fl-builder-blocks #fl-builder-blocks-saved-rows {
+	//		display: none;
+	//	}
+	//
+	//	.fl-builder-blocks .fl-builder-blocks-node-template {
+	//		display: none;
+	//	}
+	//
+	//	/*Removes Module icons*/
+	//	.fl-module .no-icon .fl-block-remove {
+	//		display: none !important;
+	//	}
+	//
+	//	.fl-module .no-icon .fl-block-col-settings {
+	//		display: none !important;
+	//	}
+	//
+	//	.fl-module .no-icon .fl-block-copy {
+	//		display: none !important;
+	//	}
+	//
+	//	.fl-module .no-icon .fl-block-move {
+	//		display: none !important;
+	//	}
+	//
+	//	/*Removes column icons */
+	//	.fl-col.no-icon .fl-block-remove {
+	//		display: none !important;
+	//	}
+	//
+	//	.fl-col.no-icon .fl-block-col-settings {
+	//		display: none !important;
+	//	}
+	//
+	//	.fl-col .no-icon .fl-block-copy {
+	//		display: none !important;
+	//	}
+	//
+	//	.fl-col .no-mod-icon .fl-block-move {
+	//		display: none !important;
+	//	}
+	//
+	//	/*Removes row icons */
+	//	.fl-row .no-icon .fl-block-remove {
+	//		display: none !important;
+	//	}
+	//
+	//	.fl-row .no-icon .fl-block-col-settings {
+	//		display: none !important;
+	//	}
+	//
+	//	.fl-row .no-icon .fl-block-copy {
+	//		display: none !important;
+	//	}
+	//
+	//	.no-icon .fl-block-move {
+	//		display: none !important;
+	//	}
+		
+	}
+
+}

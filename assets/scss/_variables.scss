@@ -1,0 +1,94 @@
+@import "grid/variables";
+@import "variables-site/typography";
+
+body {
+	--cp-color--primary: #ffffff;
+	--cp--background: transparent;
+	--cp--text-color: inherit;
+
+	// colors
+	--cp-color-canvas: transparent;
+	--cp-color-canvas-inverted: #000000;
+	
+	--cp-color-brand-primary: #7F9E4F;
+	
+	--cp-color-ui-primary: var(--cp-color-brand-primary);
+	--cp-color-ui-secondary: #37423D;
+	--cp-color-ui-inverted: #E4D6CB;
+	--cp-color-ui-inverted-light: #F6F0ED;
+	
+	--cp-color-ui-success: #1FC2A4;
+	--cp-color-ui-info: #7F23F7;
+	--cp-color-ui-warn: #FAB20A;
+	--cp-color-ui-danger: #F24441;	
+	
+	--cp-color-dark-text-primary: var(--cp-color-ui-inverted);
+	--cp-color-dark-text-secondary: var(--cp-color-ui-inverted-light);
+	--cp-color-dark-text-tertiary: var(--cp-color-brand-primary);
+	--cp-color-dark-text-disabled: var(--cp-color-text-disabled);
+	
+	--cp-color-text-primary: #171717;
+	--cp-color-text-secondary: #5F5B64;
+	--cp-color-text-tertiary: #76737A;
+	--cp-color-text-disabled: #A2A1A4;
+	
+	--cp-color-text-inverted: #ffffff;
+	
+	--cp-color-text-link: var(--cp-color-brand-primary);
+	--cp-color-text-success: var(--cp-color-ui-success);
+	--cp-color-text-info: var(--cp-color-ui-info);
+	--cp-color-text-warn: var(--cp-color-ui-warn);
+	--cp-color-text-danger: var(--cp-color-ui-danger);
+
+	// font sizes
+	--cp-font-size--xs: max( 10px, .64em );
+	--cp-font-size--sm: max( 12px, .8em );
+	--cp-font-size: 1em;
+	--cp-font-size--lg: 1.5em;
+	
+	--cp-font-size-h1: $font-size-h1; 
+	--cp-font-size-h2: $font-size-h2; 
+	--cp-font-size-h3: $font-size-h3; 
+	--cp-font-size-h4: $font-size-h4; 
+	--cp-font-size-h5: $font-size-h5; 
+	--cp-font-size-h6: $font-size-h6; 
+	
+	// gaps, padding, margin
+	--cp-grid--gap: 1rem;
+	--cp-grid--sm: map-get( $grid-breakpoints, 'sm' );
+	--cp-grid--md: map-get( $grid-breakpoints, 'md' );
+	--cp-grid--lg: map-get( $grid-breakpoints, 'lg' );
+	--cp-grid--xl: map-get( $grid-breakpoints, 'xl' );
+	--cp-grid--xxl: map-get( $grid-breakpoints, 'xxl' );
+	
+	--cp-gap-base: .5rem;
+	--cp-gap--sm: calc( var(--cp-gap-base) * 2 );
+	--cp-gap--md: calc( var(--cp-gap-base) * 4 );
+	--cp-gap--lg: calc( var(--cp-gap-base) * 8 );
+	--cp-gap--xl: calc( var(--cp-gap-base) * 16 );
+	--cp-gap--xxl: calc( var(--cp-gap-base) * 32 );
+	
+	--cp-ui--gap-y--sm: calc( var(--cp-gap-base) * .5 );
+	--cp-ui--gap-x--sm: var(--cp-gap-base );
+	--cp-ui--gap-y-x--sm: var(--cp-ui--gap-y--sm) var(--cp-ui--gap-x--sm);
+	
+	--cp-ui--gap-y: calc( var(--cp-gap-base) * .5 );
+	--cp-ui--gap-x: var( --cp-gap--sm );
+	--cp-ui--gap-y-x: var(--cp-ui--gap-y) var(--cp-ui--gap-x);
+	
+	--cp-ui--gap-y--lg: var( --cp-gap-base );
+	--cp-ui--gap-x--lg: var( --cp-gap--md );
+	--cp-ui--gap-y-x--lg: var(--cp-ui--gap-y--lg) var(--cp-ui--gap-x--lg);
+	
+	// box shadow
+	--cp-box-shadow--sm: 0px 0px 1px rgba(0, 0, 0, 0.2), 0px 1px 4px rgba(0, 0, 0, 0.06);
+	--cp-box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.16), 0px 2px 10px rgba(0, 0, 0, 0.08);
+	--cp-box-shadow--lg: 0px 0px 2px rgba(0, 0, 0, 0.08), 0px 4px 16px rgba(0, 0, 0, 0.16);
+	--cp-box-shadow--xl: 0px 0px 4px rgba(0, 0, 0, 0.08), 0px 6px 32px rgba(0, 0, 0, 0.16);
+
+	// border radius
+	--cp-border-radius-sm: 1px;
+	--cp-border-radius: 4px;
+	--cp-border-radius-lg: 20px;
+	--cp-border-radius-round: 100px;
+}

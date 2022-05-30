@@ -1,0 +1,90 @@
+/**
+ * 	Header Common
+ *
+ * Contents
+ * 1 - Common
+ * 4 - Main Header Container
+ * 6 - all and (max-width: $mx-break-point)
+ * 7 - Auto Margin
+*/
+
+/**
+ * 1 - Common
+ */
+.site-header {
+    z-index: 99;
+    position: relative;
+}
+
+/**
+ * 4 - Main Header Container
+ */
+.main-header-container {
+    position: relative;
+}
+
+.main-header-bar-wrap {
+    position: relative;
+}
+
+.main-header-bar {
+    background-color: #fff;
+    border-bottom-color: #eaeaea;
+    border-bottom-style: solid;
+}
+
+/**
+ * 6 - all and (max-width: $mx-break-point)
+ */
+.ast-header-break-point {
+
+    .main-header-bar {
+        border: 0;
+    }
+    .main-header-bar {
+        border-bottom-color: #eaeaea;
+        border-bottom-style: solid;
+    }
+}
+
+/**
+ * 7 - Auto Margin
+ */
+.main-header-bar {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/**
+ * 10 - Submenu container box shadow
+ */
+
+.ast-desktop {
+    .main-header-menu.ast-menu-shadow {
+        .sub-menu {
+            box-shadow: 0 4px 10px -2px rgba(0,0,0, 0.1);
+        }
+    }
+}
+
+.ast-header-custom-item-inside {
+    .button-custom-menu-item{
+        .menu-link {
+            display: none;
+        }
+    }
+    &.ast-header-break-point {
+        .button-custom-menu-item {
+            .ast-custom-button-link {
+                display: none;
+            }
+            .menu-link {
+                display: block;
+            }
+            padding-left: 0;
+            padding-right: 0;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+    }
+}

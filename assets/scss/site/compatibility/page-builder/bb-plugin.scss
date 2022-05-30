@@ -1,0 +1,55 @@
+/**
+ * Astra Theme compatibility with Beaver Builder
+ */
+
+.fl-builder-content {
+	clear: both;	
+}
+
+.fl-theme-builder-archive {
+	.fl-post-gallery-post.hentry,
+	.fl-post-column > .hentry {
+		margin: 0;
+	}
+
+	h2.fl-post-feed-title {
+		clear: initial;
+	}
+}
+
+// Fluid Width Support For Beaver Builder - Fluid Layout
+.ast-fluid-width-layout .fl-row-fixed-width  .fl-row-fixed-width {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+// callout
+body .fl-callout {
+	background: #ffffff;
+	padding-bottom: var(--cp-gap-base);
+	
+	&:hover {
+		.fl-callout-title a {
+			color: var(--cp-color-text-link);
+		}
+	}
+
+	.fl-photo {
+		margin-bottom: var(--cp-gap--sm);
+	}
+	
+	.fl-callout-title a {
+		color: inherit;
+		text-decoration: none;
+		
+		&:hover {
+			color: var(--cp-color-text-link);
+		}
+	}
+	
+	.fl-callout-title, .fl-callout-text-wrap {
+		padding: 0;
+		margin: 0 var(--cp-gap--sm) var(--cp-gap-base);
+	}
+	
+}

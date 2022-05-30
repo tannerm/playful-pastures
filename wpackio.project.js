@@ -22,6 +22,7 @@ module.exports = {
 			name: 'theme',
 			entry: {
 				styles: ['./assets/scss/main.scss'],
+				dynamic: ['./assets/scss/dynamic-font-size.scss'],
 				scripts: ['./assets/js/main.js']
 			},
 			webpackConfig: (config, merge, appDir, isDev) => {

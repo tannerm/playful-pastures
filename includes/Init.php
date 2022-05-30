@@ -38,6 +38,9 @@ class Init {
 	 */
 	protected function __construct() {
 		$this->actions();
+		
+		Integrations\BB::get_instance();
+		Integrations\TinyMCE::get_instance();
 	}
 
 	/**
@@ -48,12 +51,78 @@ class Init {
 	protected function actions() {
 		/** API */
 		$this->enqueue = new \WPackio\Enqueue( $this->get_id(), 'dist', $this->get_version(), 'theme', false, 'child' );
-		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ], 9999 );
+
+		// enqueue our stuff before Astra so that our stylesheet is before inline styles output by Astra
+		add_filter( 'astra_enqueue_theme_assets', [ $this, 'enqueue_main_style' ] );
+		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ], 2 );
+		
+		add_filter( 'astra_customizer_configurations', [ $this, 'astra_customizer' ], 50, 2 );
+		add_filter( 'astra_theme_dynamic_css', function( $css ) {
+			return $css;
+		});
+		
+		add_filter( 'astra_get_option_array', [ $this, 'astra_options'], 10, 3 );
 	}
 
 	/** Actions **************************************/
+
+	/**
+	 * @param $options_array
+	 * @param $option
+	 * @param $default
+	 *
+	 * @return mixed
+	 * @since  1.0.0
+	 *
+	 * @author Tanner Moushey
+	 */
+	public function astra_options( $options_array, $option, $default ) {
+		return $options_array;
+	}
+	
+	/**
+	 * Enqueue the main stylesheet
+	 * 
+	 * @param $return
+	 *
+	 * @return mixed
+	 * @since  1.0.0
+	 *
+	 * @author Tanner Moushey
+	 */
+	public function enqueue_main_style( $return ) {
+		$this->enqueue->enqueue( 'theme', 'styles', [ 'in_footer' => false ] );
+
+		return $return;
+	}
+
+	/**
+	 * Update Astra to use blank stylesheet since we are overwriting it all
+	 * 
+	 * @since  1.0.0
+	 *
+	 * @author Tanner Moushey
+	 */
 	public function enqueue_scripts() {
-		$this->enqueue->enqueue( 'theme', 'styles', [] );
+		$wp_styles = wp_styles();
+
+		// update astra to use our custom css
+		if ( isset( $wp_styles->registered['astra-theme-css'] ) ) {
+			$wp_styles->registered['astra-theme-css']->src = get_stylesheet();
+		}
+		
+		$this->enqueue->enqueue( 'theme', 'dynamic', [ 'in_footer' => false ] );
+
+	}
+	
+	public function astra_customizer( $config, $customizer ) {
+		
+		foreach( $config as $key => $item ) {
+			if ( isset( $item['name'] ) && 'section-typography' === $item['name'] ) {
+//				unset( $config[ $key ] );
+			}
+		}
+		return $config;
 	}
 
 	/**
