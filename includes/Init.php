@@ -108,7 +108,7 @@ class Init {
 
 		// update astra to use our custom css
 		if ( isset( $wp_styles->registered['astra-theme-css'] ) ) {
-			$wp_styles->registered['astra-theme-css']->src = get_stylesheet();
+			$wp_styles->registered['astra-theme-css']->src = get_stylesheet_uri();
 		}
 		
 		$this->enqueue->enqueue( 'theme', 'dynamic', [ 'in_footer' => false ] );
