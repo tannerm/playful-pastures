@@ -89,10 +89,9 @@
  */
 .ast-logo-title-inline{
 	.ast-site-identity {
-		padding: 1em 0;
-	    display: inline-flex;
-	    vertical-align: middle;
-	    align-items: center;
+		display: inline-flex;
+		vertical-align: middle;
+		align-items: center;
 		transition: all 0.2s linear;
 	}
 }
@@ -160,6 +159,13 @@
 		margin-bottom: 0;
 	}
 }
+
+#masthead {
+	.ast-builder-grid-row-container {
+		padding: 0 !important;
+	}
+}
+
 .ast-builder-grid-row-container {
 	display: grid;
 	align-content: center;

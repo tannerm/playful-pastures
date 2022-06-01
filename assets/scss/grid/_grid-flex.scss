@@ -7,15 +7,15 @@
 // Utilizes the mixin meant for fixed width containers, but without any defined
 // width for fluid, full width layouts.
   
-.ast-container {
-  max-width: 100%;
+.site-content .ast-container {
+  max-width: 70rem;
 }
 
 .ast-container-fluid, .ast-container {
   margin-left: auto;
   margin-right: auto;
-  //padding-left:  ($grid-gutter-width / 2);
-  //padding-right: ($grid-gutter-width / 2);
+  padding-left:  ($grid-gutter-width / 2);
+  padding-right: ($grid-gutter-width / 2);
 }
   
   
