@@ -6,3 +6,9 @@
 	padding-left: 1rem;
 	line-height: 2;
 }
+
+.cp_location-none {
+	.ast-builder-menu {
+		display: none;
+	}
+}
