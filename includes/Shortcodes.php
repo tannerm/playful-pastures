@@ -83,7 +83,9 @@ class Shortcodes {
 		?>
 		<script>
 			jQuery('.cp-location-dropdown').on('change', function(e) {
-				window.location = jQuery(e.target).val()
+				if (jQuery(e.target).val()) {
+					window.location = jQuery(e.target).val();
+				}
 			})
 		</script>
 		<?php
