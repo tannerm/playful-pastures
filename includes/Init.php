@@ -39,6 +39,7 @@ class Init {
 	protected function __construct() {
 		$this->actions();
 		
+		Shortcodes::get_instance();
 		Integrations\BB::get_instance();
 		Integrations\TinyMCE::get_instance();
 	}

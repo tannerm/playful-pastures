@@ -1,0 +1,8 @@
+.cp-location-header {
+	@extend %text-xlarge;
+	height: 100%;
+	display: block;
+	border-left: 1px solid var(--cp-color-text-primary);
+	padding-left: 1rem;
+	line-height: 2;
+}
