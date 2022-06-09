@@ -62,6 +62,7 @@ class Init {
 			return $css;
 		});
 		
+		add_filter( 'astra_render_fonts', function() { return []; } );
 		add_filter( 'astra_get_option_array', [ $this, 'astra_options'], 10, 3 );
 		
 		add_filter( 'cpl_topic_object_types', function( $types ) { return [ 'cpl_item', 'cpl_item_type' ]; } );
@@ -95,6 +96,7 @@ class Init {
 	 */
 	public function enqueue_main_style( $return ) {
 		$this->enqueue->enqueue( 'theme', 'styles', [ 'in_footer' => false ] );
+		$this->enqueue->enqueue( 'theme', 'scripts', [ 'in_footer' => true ] );
 
 		return $return;
 	}

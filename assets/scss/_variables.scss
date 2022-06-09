@@ -46,12 +46,15 @@ body {
 	--cp-font-size: 1em;
 	--cp-font-size--lg: 1.5em;
 	
-	--cp-font-size-h1: $font-size-h1; 
-	--cp-font-size-h2: $font-size-h2; 
-	--cp-font-size-h3: $font-size-h3; 
-	--cp-font-size-h4: $font-size-h4; 
-	--cp-font-size-h5: $font-size-h5; 
-	--cp-font-size-h6: $font-size-h6; 
+	--cp-font-size-h1: #{$font-size-h1}; 
+	--cp-font-size-h2: #{$font-size-h2}; 
+	--cp-font-size-h3: #{$font-size-h3}; 
+	--cp-font-size-h4: #{$font-size-h4}; 
+	--cp-font-size-h5: #{$font-size-h5}; 
+	--cp-font-size-h6: #{$font-size-h6}; 
+	
+	--cp-font-weight--normal: 400;
+	--cp-font-weight--bold: 700;
 	
 	// gaps, padding, margin
 	--cp-grid--gap: 1rem;
@@ -87,7 +90,7 @@ body {
 	--cp-box-shadow--xl: 0px 0px 4px rgba(0, 0, 0, 0.08), 0px 6px 32px rgba(0, 0, 0, 0.16);
 
 	// border radius
-	--cp-border-radius-sm: 1px;
+	--cp-border-radius-sm: 2px;
 	--cp-border-radius: 4px;
 	--cp-border-radius-lg: 20px;
 	--cp-border-radius-round: 100px;

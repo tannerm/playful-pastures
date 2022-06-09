@@ -12,3 +12,43 @@
 		display: none;
 	}
 }
+
+.cpl-pg-template {
+	margin-bottom: var(--cp-gap--md);
+	
+	.cpl-meta {
+		
+		> * {
+			border: 1px solid var(--cp-color-ui-inverted-light);
+			margin-right: -1px;
+			padding: 0 var(--cp-gap-base);
+
+			&:first-child {
+				padding-left: 0;
+				border-left: none;
+			}
+
+			&:last-child {
+				border-right: none;
+			}
+		}
+	}
+	
+	.cpl-single-item--info,
+	.cpl-meta--speakers {
+		@extend %text-xlarge;
+		font-size: var(--cp-font-size--xs);
+	}
+	
+	.cpl-single-type--items-title,
+	.back-link {
+		color: var(--cp-color-text-primary);
+		font-style: italic;
+	}
+	
+	.back-link {
+		&:not(:hover) {
+			text-decoration: underline;
+		}
+	}
+}
