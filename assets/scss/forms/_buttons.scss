@@ -67,6 +67,14 @@ input[type="submit"] {
 	}
 	
 	// styles
+	&.is-light {
+		--cp-button--bg: var(--cp-color-ui-inverted-light );
+		--cp-button--bg--hover: var(--cp-color-ui-inverted );
+		--cp-button--color: var(--cp-color-text-primary);
+		--cp-button--color--hover: var(--cp-button--color);
+		--cp-button--border-color: var(--cp-button--bg);
+	}
+	
 	&.is-transparent {
 		--cp-button--color: var(--cp-color-ui-secondary);
 		--cp-button--color--hover: var(--cp-color-ui-inverted-light);
