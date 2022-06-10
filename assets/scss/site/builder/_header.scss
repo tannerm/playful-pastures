@@ -265,8 +265,20 @@
 }
 
 .site-primary-footer-wrap {
+	--cp-color-text-primary: white;
+	--cp-color-text-link: white;
+	--ast-global-color-0: white;
 	padding-top: 45px;
 	padding-bottom: 45px;
+
+	.widget-title {
+		--ast-global-color-1: white;
+		@extend %text-xlarge;
+		font-size: var(--cp-font-size--sm);
+		//font-weight: normal;
+		//margin-bottom: 1em;
+		//line-height: 1.5;
+	}	
 }
 
 .site-above-footer-wrap,

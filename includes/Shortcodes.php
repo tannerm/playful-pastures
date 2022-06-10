@@ -68,7 +68,7 @@ class Shortcodes {
 		
 		ob_start(); ?>
 
-		<select class="cp-location-dropdown">
+		<select class="cp-location-dropdown button-dropdown">
 			<option value=""><?php _e( 'Select a Location', 'cp-theme-default'); ?></option>
 			<?php foreach( $locations as $location ) : ?>
 				<option value="<?php echo get_permalink( $location->origin_id ); ?>" <?php selected( $location_id, $location->origin_id ); ?>><?php echo get_the_title( $location->origin_id ); ?></option>

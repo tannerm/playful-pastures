@@ -1,7 +1,8 @@
 .widget-title {
-	font-weight: normal;
-	margin-bottom: 1em;
-	line-height: 1.5;
+	@extend %h6;
+	//font-weight: normal;
+	//margin-bottom: 1em;
+	//line-height: 1.5;
 }
 
 .widget {
