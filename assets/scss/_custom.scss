@@ -8,10 +8,15 @@
 }
 
 .cploc-map--locations--header {
-	background: var(--cp-color-text-primary);
+	@include media-breakpoint-up(md) {
+		background: var(--cp-color-text-primary);
+		
+			h2 {
+				color: var(--cp-color-text-inverted) !important;
+			}
+	}	
 	
 	h2 {
-		color: var(--cp-color-text-inverted) !important;
 		position: relative;
 		
 		&:after {
