@@ -1,6 +1,7 @@
 %button,
 body .fl-builder-content .fl-button-wrap a.fl-button,
 .cpl-button,
+.cp-button,
 button,
 .ast-button,
 .button,
@@ -27,9 +28,28 @@ input[type="submit"] {
 	letter-spacing: .04em;
 	font-weight: 500;
 	text-align: var(--cp-button--text-align);
+	display: inline-flex;
+	align-items: center;
+	justify-content: space-around;
 	
 	.fl-button-text {
 		color: var(--cp-button--color);
+	}
+	
+	svg, i {
+		width: 1.25em;
+		height: 1.25em;
+		font-size: 1.25em;
+		
+		&:last-child {
+			margin: -.5em 0 -.5em .5em;
+			float: right;
+		}
+		
+		&:first-child {
+			margin: -.5em .5em -.5em 0;
+			float: left;
+		}
 	}
 	
 	&:hover,
@@ -93,6 +113,9 @@ input[type="submit"] {
 		--cp-button--border-radius: var(--cp-border-radius-sm); 
 		--cp-button--padding: 0;
 	}
-	
+
+	&.is-em {
+		@extend %text-em;
+	}
 
 }

@@ -1,0 +1,31 @@
+.cp-location-dropdown {
+	--cp-gap--md: calc( var(--cp-gap-base) * 3 );
+	--cp-ui--gap-y-x--lg: var(--cp-ui--gap-y--lg) var(--cp-gap--sm);
+	
+	&--item {
+		display: flex;
+		flex-flow: row;
+		align-items: center;
+		white-space: nowrap;
+		line-height: 1.5;
+		cursor: pointer;
+		
+		&:hover {
+			color: var(--cp-color-text-link);
+		}
+		
+		&:not(:last-child) {
+			margin-bottom: var(--cp-gap--md);
+		}
+		
+		&--thumb {
+			flex: 0 0 3.375rem;
+			max-width: 3.375rem;
+			margin-right: var(--cp-gap--sm);
+		}
+		
+		&--content {
+			padding-right: var(--cp-gap--lg);
+		}
+	}
+}

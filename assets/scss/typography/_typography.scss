@@ -1,10 +1,7 @@
 @import "headings";
 
 %text-xlarge, .text-xlarge {
-	text-transform: uppercase;
-	letter-spacing: .08em;
-	line-height: 1.5;
-	font-weight: 500;
+	@extend %text-em;
 	font-size: 1rem;
 }
 
@@ -19,4 +16,11 @@
 
 %text-xsmall, .text-xsmall {
 	font-size: var(--cp-font-size--xs);
+}
+
+%text-em, .text-em {
+	text-transform: uppercase;
+	letter-spacing: .08em;
+	line-height: 1.5;
+	font-weight: 500;
 }

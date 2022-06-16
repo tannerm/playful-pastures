@@ -3,6 +3,8 @@
 namespace Church;
 
 
+use ChurchPlugins\Exception;
+
 /**
  * Provides the global $arms_directory object
  *
@@ -64,16 +66,48 @@ class Shortcodes {
 		
 		$location_id = get_query_var( 'cp_location_id' );
 		
-		$locations = \CP_Locations\Models\Location::get_all_locations();
+		$locations = \CP_Locations\Models\Location::get_all_locations( true );
 		
 		ob_start(); ?>
 
-		<select class="cp-location-dropdown button-dropdown">
-			<option value=""><?php _e( 'Select a Location', 'cp-theme-default'); ?></option>
-			<?php foreach( $locations as $location ) : ?>
-				<option value="<?php echo get_permalink( $location->origin_id ); ?>" <?php selected( $location_id, $location->origin_id ); ?>><?php echo get_the_title( $location->origin_id ); ?></option>
-			<?php endforeach; ?>
-		</select>
+		<div class="dropdown is-right cp-location-dropdown">
+			<div class="dropdown-trigger">
+				<a href="#" class="cp-button is-transparent is-large is-em" aria-haspopup="true" aria-controls="dropdown-menu6">
+					<span class="text-small"><?php _e( 'Select a Location', 'cp-theme-default'); ?></span>
+					<i data-feather="chevron-down" aria-hidden="true"></i>
+				</a>
+			</div>
+			<div class="dropdown-menu" role="menu">
+				<div class="dropdown-content">
+					<div class="dropdown-item">
+						<?php foreach ( $locations as $location ) :
+							try {
+								$loc = new \CP_Locations\Controllers\Location( $location->ID, true );
+							} catch ( Exception $e ) {
+								error_log( $e );
+								continue;
+							}
+						?>
+							<div onclick="window.location = '<?php echo get_the_permalink( $location->ID ); ?>';" class="cp-location-dropdown--item">
+								<div class="cp-location-dropdown--item--thumb">
+									<?php if ( ! empty( $loc->get_thumbnail()['thumbnail'] ) ) : ?>
+										<img alt="location thumbnail" src="<?php echo $loc->get_thumbnail()['thumbnail']; ?>" />
+									<?php endif; ?>
+								</div>
+								
+								<div class="cp-location-dropdown--item--content">
+									<div class="cp-location-dropdown--item--title"><?php echo get_the_title( $location->ID ); ?></div>
+									<div class="cp-location-dropdown--item--desc text-xsmall"><?php echo $loc->pastor; ?></div>
+								</div>
+							</div>
+						<?php endforeach; ?>
+						
+						<a class="cp-button is-fullwidth is-em is-small" href="/locations"><?php _e( 'View on Map', 'cp-theme-default' ); ?></a>
+					</div>
+				</div>
+			</div>
+		</div>		
+		
 		<?php
 		add_action( 'wp_footer', [ $this, 'location_select_js' ] );
 		return ob_get_clean();
