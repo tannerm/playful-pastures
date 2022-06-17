@@ -64,8 +64,6 @@ class Shortcodes {
 			return '';
 		}
 		
-		$location_id = get_query_var( 'cp_location_id' );
-		
 		$locations = \CP_Locations\Models\Location::get_all_locations( true );
 		
 		ob_start(); ?>
@@ -73,7 +71,12 @@ class Shortcodes {
 		<div class="dropdown is-right cp-location-dropdown">
 			<div class="dropdown-trigger">
 				<a href="#" class="cp-button is-transparent is-large is-em" aria-haspopup="true" aria-controls="dropdown-menu6">
-					<span class="text-small"><?php _e( 'Select a Location', 'cp-theme-default'); ?></span>
+					<?php if ( $location_id = get_query_var( 'cp_location_id' ) ) : ?>
+						<i data-feather="map-pin" class="is-small" aria-hidden="true"></i>
+						<span class="text-small"><?php echo get_the_title( $location_id ); ?></span>
+					<?php else : ?>
+						<span class="text-small"><?php _e( 'Select a Location', 'cp-theme-default'); ?></span>
+					<?php endif; ?>
 					<i data-feather="chevron-down" aria-hidden="true"></i>
 				</a>
 			</div>
