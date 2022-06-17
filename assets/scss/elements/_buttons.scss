@@ -41,12 +41,12 @@ input[type="submit"] {
 		height: 1.25em;
 		font-size: 1.25em;
 		
-		&:last-child {
+		&:last-child:not(:first-child) {
 			margin: -.5em 0 -.5em .5em;
 			float: right;
 		}
 		
-		&:first-child {
+		&:first-child:not(:last-child) {
 			margin: -.5em .5em -.5em 0;
 			float: left;
 		}

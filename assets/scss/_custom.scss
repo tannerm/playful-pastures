@@ -31,6 +31,12 @@
 	}
 }
 
+#cploc_root {
+	.leaflet-tooltip {
+		@extend %text-em;
+	}	
+}
+
 .cploc-list {
 	padding: var(--cp-gap--lg);
 	max-width: var(--cp-content-width);
