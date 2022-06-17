@@ -81,6 +81,60 @@ class Init {
 	 * @author Tanner Moushey
 	 */
 	public function astra_options( $options_array, $option, $default ) {
+		$options_array['font-size-h1'] = [
+			'desktop'      => '3.052',
+			'tablet'       => '3.052',
+			'mobile'       => '3.052',
+			'desktop-unit' => 'em',
+			'tablet-unit'  => 'em',
+			'mobile-unit'  => 'em',
+		];
+
+		$options_array['font-size-h2'] = [
+			'desktop'      => '2.441',
+			'tablet'       => '2.441',
+			'mobile'       => '2.441',
+			'desktop-unit' => 'em',
+			'tablet-unit'  => 'em',
+			'mobile-unit'  => 'em',
+		];
+
+		$options_array['font-size-h3'] = [
+			'desktop'      => '1.953',
+			'tablet'       => '1.953',
+			'mobile'       => '1.953',
+			'desktop-unit' => 'em',
+			'tablet-unit'  => 'em',
+			'mobile-unit'  => 'em',
+		];
+
+		$options_array['font-size-h4'] = [
+			'desktop'      => '1.563',
+			'tablet'       => '1.563',
+			'mobile'       => '1.563',
+			'desktop-unit' => 'em',
+			'tablet-unit'  => 'em',
+			'mobile-unit'  => 'em',
+		];
+
+		$options_array['font-size-h5'] = [
+			'desktop'      => '1.25',
+			'tablet'       => '1.25',
+			'mobile'       => '1.25',
+			'desktop-unit' => 'em',
+			'tablet-unit'  => 'em',
+			'mobile-unit'  => 'em',
+		];
+
+		$options_array['font-size-h6'] = [
+			'desktop'      => '1',
+			'tablet'       => '1',
+			'mobile'       => '1',
+			'desktop-unit' => 'em',
+			'tablet-unit'  => 'em',
+			'mobile-unit'  => 'em',
+		];
+
 		return $options_array;
 	}
 	
