@@ -2,6 +2,13 @@
  * Astra Theme compatibility with Beaver Builder
  */
 
+body .fl-module {
+	p,
+	.fl-callout-title {
+		padding: 0 !important;
+	}
+}
+
 .fl-builder-content {
 	clear: both;	
 }
@@ -27,6 +34,12 @@
 body .fl-callout {
 	background: #ffffff;
 	padding-bottom: var(--cp-gap-base);
+	border-radius: var( --cp-border-radius-sm );
+	overflow: hidden;
+	
+	img {
+		border-radius: 0;
+	}
 	
 	&:hover {
 		.fl-callout-title a {
@@ -35,7 +48,7 @@ body .fl-callout {
 	}
 
 	.fl-photo {
-		margin-bottom: var(--cp-gap--sm);
+		margin-bottom: 0; // var(--cp-gap--sm);
 	}
 	
 	.fl-callout-title a {
@@ -47,9 +60,48 @@ body .fl-callout {
 		}
 	}
 	
-	.fl-callout-title, .fl-callout-text-wrap {
+	&-photo-above-title {
+		.fl-callout-title, .fl-callout-text-wrap {
+			padding: 0;
+			margin: var(--cp-gap--sm) var(--cp-gap--sm) var(--cp-gap-base);
+		}
+	}
+	
+	&-photo-left,
+	&-photo-right {
+		background: var(--cp-color-ui-inverted-light);
 		padding: 0;
-		margin: 0 var(--cp-gap--sm) var(--cp-gap-base);
+		
+		.fl-callout-content {
+			padding: var(--cp-gap--md);
+		}
+		
+		.fl-callout-photo {
+			position: relative;
+			width: 23.5%;
+		}
+		
+		.fl-photo-content,
+		.fl-photo {
+			height: 100%;
+			width: 100%;
+			position: absolute;
+			left: 0;
+			top: 0;
+			text-align: center;
+			display: flex;
+			justify-content: center;
+			overflow: hidden;
+		}
+		.fl-photo-content {
+			
+			img {
+				display: block;
+				max-width: none;
+				height: 100%;
+				width: auto;
+			}
+		}
 	}
 	
 }
