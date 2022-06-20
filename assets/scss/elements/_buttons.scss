@@ -30,7 +30,7 @@ input[type="submit"] {
 	text-align: var(--cp-button--text-align);
 	display: inline-flex;
 	align-items: center;
-	justify-content: space-around;
+	justify-content: center;
 	
 	.fl-button-text {
 		color: var(--cp-button--color);
@@ -72,6 +72,7 @@ input[type="submit"] {
 		border-color: var(--cp-button--border-color--hover);
 		background: var(--cp-button--bg--hover);
 
+		svg, i,
 		.fl-button-text {
 			color: var(--cp-button--color--hover);
 		}
