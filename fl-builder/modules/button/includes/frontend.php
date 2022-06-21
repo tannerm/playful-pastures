@@ -31,7 +31,12 @@
 			$button_classes .= 'fl-button-icon-animation ';
 		}
 
-		$button_classes .= $settings->button_style . ' ' . $settings->button_size . ' ' . $settings->button_width . ' ' . $settings->button_color . ' ' . $settings->button_text;
+		$button_classes .= $settings->button_style . ' ' . $settings->button_size . ' ' . $settings->button_color . ' ' . $settings->button_text;
+		
+		// $button_width is no longer used
+		if ( 'full' === $settings->width || 'is-fullwidth' === $settings->button_width ) {
+			$button_classes .= ' is-fullwidth';
+		}
 	?>
 
 	<a href="<?php echo $settings->link; ?>"

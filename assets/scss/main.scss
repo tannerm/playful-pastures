@@ -84,6 +84,8 @@
 /*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
+$icomoon-font-path: '../fonts/feather/fonts';
+@import "../fonts/feather/style";
 @import "site/main";
 
 @import "bb-permissions";

@@ -1,0 +1,1439 @@
+@import "variables";
+
+@font-face {
+  font-family: '#{$icomoon-font-family}';
+  src:
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?3r82k8') format('truetype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?3r82k8') format('woff'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?3r82k8##{$icomoon-font-family}') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="feather-"], [class*=" feather-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: '#{$icomoon-font-family}' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.feather-activity {
+  &:before {
+    content: $feather-activity; 
+  }
+}
+.feather-airplay {
+  &:before {
+    content: $feather-airplay; 
+  }
+}
+.feather-alert-circle {
+  &:before {
+    content: $feather-alert-circle; 
+  }
+}
+.feather-alert-octagon {
+  &:before {
+    content: $feather-alert-octagon; 
+  }
+}
+.feather-alert-triangle {
+  &:before {
+    content: $feather-alert-triangle; 
+  }
+}
+.feather-align-center {
+  &:before {
+    content: $feather-align-center; 
+  }
+}
+.feather-align-justify {
+  &:before {
+    content: $feather-align-justify; 
+  }
+}
+.feather-align-left {
+  &:before {
+    content: $feather-align-left; 
+  }
+}
+.feather-align-right {
+  &:before {
+    content: $feather-align-right; 
+  }
+}
+.feather-anchor {
+  &:before {
+    content: $feather-anchor; 
+  }
+}
+.feather-aperture {
+  &:before {
+    content: $feather-aperture; 
+  }
+}
+.feather-archive {
+  &:before {
+    content: $feather-archive; 
+  }
+}
+.feather-arrow-down {
+  &:before {
+    content: $feather-arrow-down; 
+  }
+}
+.feather-arrow-down-circle {
+  &:before {
+    content: $feather-arrow-down-circle; 
+  }
+}
+.feather-arrow-down-left {
+  &:before {
+    content: $feather-arrow-down-left; 
+  }
+}
+.feather-arrow-down-right {
+  &:before {
+    content: $feather-arrow-down-right; 
+  }
+}
+.feather-arrow-left {
+  &:before {
+    content: $feather-arrow-left; 
+  }
+}
+.feather-arrow-left-circle {
+  &:before {
+    content: $feather-arrow-left-circle; 
+  }
+}
+.feather-arrow-right {
+  &:before {
+    content: $feather-arrow-right; 
+  }
+}
+.feather-arrow-right-circle {
+  &:before {
+    content: $feather-arrow-right-circle; 
+  }
+}
+.feather-arrow-up {
+  &:before {
+    content: $feather-arrow-up; 
+  }
+}
+.feather-arrow-up-circle {
+  &:before {
+    content: $feather-arrow-up-circle; 
+  }
+}
+.feather-arrow-up-left {
+  &:before {
+    content: $feather-arrow-up-left; 
+  }
+}
+.feather-arrow-up-right {
+  &:before {
+    content: $feather-arrow-up-right; 
+  }
+}
+.feather-at-sign {
+  &:before {
+    content: $feather-at-sign; 
+  }
+}
+.feather-award {
+  &:before {
+    content: $feather-award; 
+  }
+}
+.feather-bar-chart {
+  &:before {
+    content: $feather-bar-chart; 
+  }
+}
+.feather-bar-chart-2 {
+  &:before {
+    content: $feather-bar-chart-2; 
+  }
+}
+.feather-battery {
+  &:before {
+    content: $feather-battery; 
+  }
+}
+.feather-battery-charging {
+  &:before {
+    content: $feather-battery-charging; 
+  }
+}
+.feather-bell {
+  &:before {
+    content: $feather-bell; 
+  }
+}
+.feather-bell-off {
+  &:before {
+    content: $feather-bell-off; 
+  }
+}
+.feather-bluetooth {
+  &:before {
+    content: $feather-bluetooth; 
+  }
+}
+.feather-bold {
+  &:before {
+    content: $feather-bold; 
+  }
+}
+.feather-book {
+  &:before {
+    content: $feather-book; 
+  }
+}
+.feather-book-open {
+  &:before {
+    content: $feather-book-open; 
+  }
+}
+.feather-bookmark {
+  &:before {
+    content: $feather-bookmark; 
+  }
+}
+.feather-box {
+  &:before {
+    content: $feather-box; 
+  }
+}
+.feather-briefcase {
+  &:before {
+    content: $feather-briefcase; 
+  }
+}
+.feather-calendar {
+  &:before {
+    content: $feather-calendar; 
+  }
+}
+.feather-camera {
+  &:before {
+    content: $feather-camera; 
+  }
+}
+.feather-camera-off {
+  &:before {
+    content: $feather-camera-off; 
+  }
+}
+.feather-cast {
+  &:before {
+    content: $feather-cast; 
+  }
+}
+.feather-check {
+  &:before {
+    content: $feather-check; 
+  }
+}
+.feather-check-circle {
+  &:before {
+    content: $feather-check-circle; 
+  }
+}
+.feather-check-square {
+  &:before {
+    content: $feather-check-square; 
+  }
+}
+.feather-chevron-down {
+  &:before {
+    content: $feather-chevron-down; 
+  }
+}
+.feather-chevron-left {
+  &:before {
+    content: $feather-chevron-left; 
+  }
+}
+.feather-chevron-right {
+  &:before {
+    content: $feather-chevron-right; 
+  }
+}
+.feather-chevron-up {
+  &:before {
+    content: $feather-chevron-up; 
+  }
+}
+.feather-chevrons-down {
+  &:before {
+    content: $feather-chevrons-down; 
+  }
+}
+.feather-chevrons-left {
+  &:before {
+    content: $feather-chevrons-left; 
+  }
+}
+.feather-chevrons-right {
+  &:before {
+    content: $feather-chevrons-right; 
+  }
+}
+.feather-chevrons-up {
+  &:before {
+    content: $feather-chevrons-up; 
+  }
+}
+.feather-chrome {
+  &:before {
+    content: $feather-chrome; 
+  }
+}
+.feather-circle {
+  &:before {
+    content: $feather-circle; 
+  }
+}
+.feather-clipboard {
+  &:before {
+    content: $feather-clipboard; 
+  }
+}
+.feather-clock {
+  &:before {
+    content: $feather-clock; 
+  }
+}
+.feather-cloud {
+  &:before {
+    content: $feather-cloud; 
+  }
+}
+.feather-cloud-drizzle {
+  &:before {
+    content: $feather-cloud-drizzle; 
+  }
+}
+.feather-cloud-lightning {
+  &:before {
+    content: $feather-cloud-lightning; 
+  }
+}
+.feather-cloud-off {
+  &:before {
+    content: $feather-cloud-off; 
+  }
+}
+.feather-cloud-rain {
+  &:before {
+    content: $feather-cloud-rain; 
+  }
+}
+.feather-cloud-snow {
+  &:before {
+    content: $feather-cloud-snow; 
+  }
+}
+.feather-code {
+  &:before {
+    content: $feather-code; 
+  }
+}
+.feather-codepen {
+  &:before {
+    content: $feather-codepen; 
+  }
+}
+.feather-codesandbox {
+  &:before {
+    content: $feather-codesandbox; 
+  }
+}
+.feather-coffee {
+  &:before {
+    content: $feather-coffee; 
+  }
+}
+.feather-columns {
+  &:before {
+    content: $feather-columns; 
+  }
+}
+.feather-command {
+  &:before {
+    content: $feather-command; 
+  }
+}
+.feather-compass {
+  &:before {
+    content: $feather-compass; 
+  }
+}
+.feather-copy {
+  &:before {
+    content: $feather-copy; 
+  }
+}
+.feather-corner-down-left {
+  &:before {
+    content: $feather-corner-down-left; 
+  }
+}
+.feather-corner-down-right {
+  &:before {
+    content: $feather-corner-down-right; 
+  }
+}
+.feather-corner-left-down {
+  &:before {
+    content: $feather-corner-left-down; 
+  }
+}
+.feather-corner-left-up {
+  &:before {
+    content: $feather-corner-left-up; 
+  }
+}
+.feather-corner-right-down {
+  &:before {
+    content: $feather-corner-right-down; 
+  }
+}
+.feather-corner-right-up {
+  &:before {
+    content: $feather-corner-right-up; 
+  }
+}
+.feather-corner-up-left {
+  &:before {
+    content: $feather-corner-up-left; 
+  }
+}
+.feather-corner-up-right {
+  &:before {
+    content: $feather-corner-up-right; 
+  }
+}
+.feather-cpu {
+  &:before {
+    content: $feather-cpu; 
+  }
+}
+.feather-credit-card {
+  &:before {
+    content: $feather-credit-card; 
+  }
+}
+.feather-crop {
+  &:before {
+    content: $feather-crop; 
+  }
+}
+.feather-crosshair {
+  &:before {
+    content: $feather-crosshair; 
+  }
+}
+.feather-database {
+  &:before {
+    content: $feather-database; 
+  }
+}
+.feather-delete {
+  &:before {
+    content: $feather-delete; 
+  }
+}
+.feather-disc {
+  &:before {
+    content: $feather-disc; 
+  }
+}
+.feather-dollar-sign {
+  &:before {
+    content: $feather-dollar-sign; 
+  }
+}
+.feather-download {
+  &:before {
+    content: $feather-download; 
+  }
+}
+.feather-download-cloud {
+  &:before {
+    content: $feather-download-cloud; 
+  }
+}
+.feather-droplet {
+  &:before {
+    content: $feather-droplet; 
+  }
+}
+.feather-edit {
+  &:before {
+    content: $feather-edit; 
+  }
+}
+.feather-edit-2 {
+  &:before {
+    content: $feather-edit-2; 
+  }
+}
+.feather-edit-3 {
+  &:before {
+    content: $feather-edit-3; 
+  }
+}
+.feather-external-link {
+  &:before {
+    content: $feather-external-link; 
+  }
+}
+.feather-eye {
+  &:before {
+    content: $feather-eye; 
+  }
+}
+.feather-eye-off {
+  &:before {
+    content: $feather-eye-off; 
+  }
+}
+.feather-facebook {
+  &:before {
+    content: $feather-facebook; 
+  }
+}
+.feather-fast-forward {
+  &:before {
+    content: $feather-fast-forward; 
+  }
+}
+.feather-feather {
+  &:before {
+    content: $feather-feather; 
+  }
+}
+.feather-figma {
+  &:before {
+    content: $feather-figma; 
+  }
+}
+.feather-file {
+  &:before {
+    content: $feather-file; 
+  }
+}
+.feather-file-minus {
+  &:before {
+    content: $feather-file-minus; 
+  }
+}
+.feather-file-plus {
+  &:before {
+    content: $feather-file-plus; 
+  }
+}
+.feather-file-text {
+  &:before {
+    content: $feather-file-text; 
+  }
+}
+.feather-film {
+  &:before {
+    content: $feather-film; 
+  }
+}
+.feather-filter {
+  &:before {
+    content: $feather-filter; 
+  }
+}
+.feather-flag {
+  &:before {
+    content: $feather-flag; 
+  }
+}
+.feather-folder {
+  &:before {
+    content: $feather-folder; 
+  }
+}
+.feather-folder-minus {
+  &:before {
+    content: $feather-folder-minus; 
+  }
+}
+.feather-folder-plus {
+  &:before {
+    content: $feather-folder-plus; 
+  }
+}
+.feather-framer {
+  &:before {
+    content: $feather-framer; 
+  }
+}
+.feather-frown {
+  &:before {
+    content: $feather-frown; 
+  }
+}
+.feather-gift {
+  &:before {
+    content: $feather-gift; 
+  }
+}
+.feather-git-branch {
+  &:before {
+    content: $feather-git-branch; 
+  }
+}
+.feather-git-commit {
+  &:before {
+    content: $feather-git-commit; 
+  }
+}
+.feather-git-merge {
+  &:before {
+    content: $feather-git-merge; 
+  }
+}
+.feather-git-pull-request {
+  &:before {
+    content: $feather-git-pull-request; 
+  }
+}
+.feather-github {
+  &:before {
+    content: $feather-github; 
+  }
+}
+.feather-gitlab {
+  &:before {
+    content: $feather-gitlab; 
+  }
+}
+.feather-globe {
+  &:before {
+    content: $feather-globe; 
+  }
+}
+.feather-grid {
+  &:before {
+    content: $feather-grid; 
+  }
+}
+.feather-hard-drive {
+  &:before {
+    content: $feather-hard-drive; 
+  }
+}
+.feather-hash {
+  &:before {
+    content: $feather-hash; 
+  }
+}
+.feather-headphones {
+  &:before {
+    content: $feather-headphones; 
+  }
+}
+.feather-heart {
+  &:before {
+    content: $feather-heart; 
+  }
+}
+.feather-help-circle {
+  &:before {
+    content: $feather-help-circle; 
+  }
+}
+.feather-hexagon {
+  &:before {
+    content: $feather-hexagon; 
+  }
+}
+.feather-home {
+  &:before {
+    content: $feather-home; 
+  }
+}
+.feather-image {
+  &:before {
+    content: $feather-image; 
+  }
+}
+.feather-inbox {
+  &:before {
+    content: $feather-inbox; 
+  }
+}
+.feather-info {
+  &:before {
+    content: $feather-info; 
+  }
+}
+.feather-instagram {
+  &:before {
+    content: $feather-instagram; 
+  }
+}
+.feather-italic {
+  &:before {
+    content: $feather-italic; 
+  }
+}
+.feather-key {
+  &:before {
+    content: $feather-key; 
+  }
+}
+.feather-layers {
+  &:before {
+    content: $feather-layers; 
+  }
+}
+.feather-layout {
+  &:before {
+    content: $feather-layout; 
+  }
+}
+.feather-life-buoy {
+  &:before {
+    content: $feather-life-buoy; 
+  }
+}
+.feather-link {
+  &:before {
+    content: $feather-link; 
+  }
+}
+.feather-link-2 {
+  &:before {
+    content: $feather-link-2; 
+  }
+}
+.feather-linkedin {
+  &:before {
+    content: $feather-linkedin; 
+  }
+}
+.feather-list {
+  &:before {
+    content: $feather-list; 
+  }
+}
+.feather-loader {
+  &:before {
+    content: $feather-loader; 
+  }
+}
+.feather-lock {
+  &:before {
+    content: $feather-lock; 
+  }
+}
+.feather-log-in {
+  &:before {
+    content: $feather-log-in; 
+  }
+}
+.feather-log-out {
+  &:before {
+    content: $feather-log-out; 
+  }
+}
+.feather-mail {
+  &:before {
+    content: $feather-mail; 
+  }
+}
+.feather-map {
+  &:before {
+    content: $feather-map; 
+  }
+}
+.feather-map-pin {
+  &:before {
+    content: $feather-map-pin; 
+  }
+}
+.feather-maximize {
+  &:before {
+    content: $feather-maximize; 
+  }
+}
+.feather-maximize-2 {
+  &:before {
+    content: $feather-maximize-2; 
+  }
+}
+.feather-meh {
+  &:before {
+    content: $feather-meh; 
+  }
+}
+.feather-menu {
+  &:before {
+    content: $feather-menu; 
+  }
+}
+.feather-message-circle {
+  &:before {
+    content: $feather-message-circle; 
+  }
+}
+.feather-message-square {
+  &:before {
+    content: $feather-message-square; 
+  }
+}
+.feather-mic {
+  &:before {
+    content: $feather-mic; 
+  }
+}
+.feather-mic-off {
+  &:before {
+    content: $feather-mic-off; 
+  }
+}
+.feather-minimize {
+  &:before {
+    content: $feather-minimize; 
+  }
+}
+.feather-minimize-2 {
+  &:before {
+    content: $feather-minimize-2; 
+  }
+}
+.feather-minus {
+  &:before {
+    content: $feather-minus; 
+  }
+}
+.feather-minus-circle {
+  &:before {
+    content: $feather-minus-circle; 
+  }
+}
+.feather-minus-square {
+  &:before {
+    content: $feather-minus-square; 
+  }
+}
+.feather-monitor {
+  &:before {
+    content: $feather-monitor; 
+  }
+}
+.feather-moon {
+  &:before {
+    content: $feather-moon; 
+  }
+}
+.feather-more-horizontal {
+  &:before {
+    content: $feather-more-horizontal; 
+  }
+}
+.feather-more-vertical {
+  &:before {
+    content: $feather-more-vertical; 
+  }
+}
+.feather-mouse-pointer {
+  &:before {
+    content: $feather-mouse-pointer; 
+  }
+}
+.feather-move {
+  &:before {
+    content: $feather-move; 
+  }
+}
+.feather-music {
+  &:before {
+    content: $feather-music; 
+  }
+}
+.feather-navigation {
+  &:before {
+    content: $feather-navigation; 
+  }
+}
+.feather-navigation-2 {
+  &:before {
+    content: $feather-navigation-2; 
+  }
+}
+.feather-octagon {
+  &:before {
+    content: $feather-octagon; 
+  }
+}
+.feather-package {
+  &:before {
+    content: $feather-package; 
+  }
+}
+.feather-paperclip {
+  &:before {
+    content: $feather-paperclip; 
+  }
+}
+.feather-pause {
+  &:before {
+    content: $feather-pause; 
+  }
+}
+.feather-pause-circle {
+  &:before {
+    content: $feather-pause-circle; 
+  }
+}
+.feather-pen-tool {
+  &:before {
+    content: $feather-pen-tool; 
+  }
+}
+.feather-percent {
+  &:before {
+    content: $feather-percent; 
+  }
+}
+.feather-phone {
+  &:before {
+    content: $feather-phone; 
+  }
+}
+.feather-phone-call {
+  &:before {
+    content: $feather-phone-call; 
+  }
+}
+.feather-phone-forwarded {
+  &:before {
+    content: $feather-phone-forwarded; 
+  }
+}
+.feather-phone-incoming {
+  &:before {
+    content: $feather-phone-incoming; 
+  }
+}
+.feather-phone-missed {
+  &:before {
+    content: $feather-phone-missed; 
+  }
+}
+.feather-phone-off {
+  &:before {
+    content: $feather-phone-off; 
+  }
+}
+.feather-phone-outgoing {
+  &:before {
+    content: $feather-phone-outgoing; 
+  }
+}
+.feather-pie-chart {
+  &:before {
+    content: $feather-pie-chart; 
+  }
+}
+.feather-play {
+  &:before {
+    content: $feather-play; 
+  }
+}
+.feather-play-circle {
+  &:before {
+    content: $feather-play-circle; 
+  }
+}
+.feather-plus {
+  &:before {
+    content: $feather-plus; 
+  }
+}
+.feather-plus-circle {
+  &:before {
+    content: $feather-plus-circle; 
+  }
+}
+.feather-plus-square {
+  &:before {
+    content: $feather-plus-square; 
+  }
+}
+.feather-pocket {
+  &:before {
+    content: $feather-pocket; 
+  }
+}
+.feather-power {
+  &:before {
+    content: $feather-power; 
+  }
+}
+.feather-printer {
+  &:before {
+    content: $feather-printer; 
+  }
+}
+.feather-radio {
+  &:before {
+    content: $feather-radio; 
+  }
+}
+.feather-refresh-ccw {
+  &:before {
+    content: $feather-refresh-ccw; 
+  }
+}
+.feather-refresh-cw {
+  &:before {
+    content: $feather-refresh-cw; 
+  }
+}
+.feather-repeat {
+  &:before {
+    content: $feather-repeat; 
+  }
+}
+.feather-rewind {
+  &:before {
+    content: $feather-rewind; 
+  }
+}
+.feather-rotate-ccw {
+  &:before {
+    content: $feather-rotate-ccw; 
+  }
+}
+.feather-rotate-cw {
+  &:before {
+    content: $feather-rotate-cw; 
+  }
+}
+.feather-rss {
+  &:before {
+    content: $feather-rss; 
+  }
+}
+.feather-save {
+  &:before {
+    content: $feather-save; 
+  }
+}
+.feather-scissors {
+  &:before {
+    content: $feather-scissors; 
+  }
+}
+.feather-search {
+  &:before {
+    content: $feather-search; 
+  }
+}
+.feather-send {
+  &:before {
+    content: $feather-send; 
+  }
+}
+.feather-server {
+  &:before {
+    content: $feather-server; 
+  }
+}
+.feather-settings {
+  &:before {
+    content: $feather-settings; 
+  }
+}
+.feather-share {
+  &:before {
+    content: $feather-share; 
+  }
+}
+.feather-share-2 {
+  &:before {
+    content: $feather-share-2; 
+  }
+}
+.feather-shield {
+  &:before {
+    content: $feather-shield; 
+  }
+}
+.feather-shield-off {
+  &:before {
+    content: $feather-shield-off; 
+  }
+}
+.feather-shopping-bag {
+  &:before {
+    content: $feather-shopping-bag; 
+  }
+}
+.feather-shopping-cart {
+  &:before {
+    content: $feather-shopping-cart; 
+  }
+}
+.feather-shuffle {
+  &:before {
+    content: $feather-shuffle; 
+  }
+}
+.feather-sidebar {
+  &:before {
+    content: $feather-sidebar; 
+  }
+}
+.feather-skip-back {
+  &:before {
+    content: $feather-skip-back; 
+  }
+}
+.feather-skip-forward {
+  &:before {
+    content: $feather-skip-forward; 
+  }
+}
+.feather-slack {
+  &:before {
+    content: $feather-slack; 
+  }
+}
+.feather-slash {
+  &:before {
+    content: $feather-slash; 
+  }
+}
+.feather-sliders {
+  &:before {
+    content: $feather-sliders; 
+  }
+}
+.feather-smartphone {
+  &:before {
+    content: $feather-smartphone; 
+  }
+}
+.feather-smile {
+  &:before {
+    content: $feather-smile; 
+  }
+}
+.feather-speaker {
+  &:before {
+    content: $feather-speaker; 
+  }
+}
+.feather-square {
+  &:before {
+    content: $feather-square; 
+  }
+}
+.feather-star {
+  &:before {
+    content: $feather-star; 
+  }
+}
+.feather-stop-circle {
+  &:before {
+    content: $feather-stop-circle; 
+  }
+}
+.feather-sun {
+  &:before {
+    content: $feather-sun; 
+  }
+}
+.feather-sunrise {
+  &:before {
+    content: $feather-sunrise; 
+  }
+}
+.feather-sunset {
+  &:before {
+    content: $feather-sunset; 
+  }
+}
+.feather-tablet {
+  &:before {
+    content: $feather-tablet; 
+  }
+}
+.feather-tag {
+  &:before {
+    content: $feather-tag; 
+  }
+}
+.feather-target {
+  &:before {
+    content: $feather-target; 
+  }
+}
+.feather-terminal {
+  &:before {
+    content: $feather-terminal; 
+  }
+}
+.feather-thermometer {
+  &:before {
+    content: $feather-thermometer; 
+  }
+}
+.feather-thumbs-down {
+  &:before {
+    content: $feather-thumbs-down; 
+  }
+}
+.feather-thumbs-up {
+  &:before {
+    content: $feather-thumbs-up; 
+  }
+}
+.feather-toggle-left {
+  &:before {
+    content: $feather-toggle-left; 
+  }
+}
+.feather-toggle-right {
+  &:before {
+    content: $feather-toggle-right; 
+  }
+}
+.feather-tool {
+  &:before {
+    content: $feather-tool; 
+  }
+}
+.feather-trash {
+  &:before {
+    content: $feather-trash; 
+  }
+}
+.feather-trash-2 {
+  &:before {
+    content: $feather-trash-2; 
+  }
+}
+.feather-trello {
+  &:before {
+    content: $feather-trello; 
+  }
+}
+.feather-trending-down {
+  &:before {
+    content: $feather-trending-down; 
+  }
+}
+.feather-trending-up {
+  &:before {
+    content: $feather-trending-up; 
+  }
+}
+.feather-triangle {
+  &:before {
+    content: $feather-triangle; 
+  }
+}
+.feather-truck {
+  &:before {
+    content: $feather-truck; 
+  }
+}
+.feather-tv {
+  &:before {
+    content: $feather-tv; 
+  }
+}
+.feather-twitch {
+  &:before {
+    content: $feather-twitch; 
+  }
+}
+.feather-twitter {
+  &:before {
+    content: $feather-twitter; 
+  }
+}
+.feather-type {
+  &:before {
+    content: $feather-type; 
+  }
+}
+.feather-umbrella {
+  &:before {
+    content: $feather-umbrella; 
+  }
+}
+.feather-underline {
+  &:before {
+    content: $feather-underline; 
+  }
+}
+.feather-unlock {
+  &:before {
+    content: $feather-unlock; 
+  }
+}
+.feather-upload {
+  &:before {
+    content: $feather-upload; 
+  }
+}
+.feather-upload-cloud {
+  &:before {
+    content: $feather-upload-cloud; 
+  }
+}
+.feather-user {
+  &:before {
+    content: $feather-user; 
+  }
+}
+.feather-user-check {
+  &:before {
+    content: $feather-user-check; 
+  }
+}
+.feather-user-minus {
+  &:before {
+    content: $feather-user-minus; 
+  }
+}
+.feather-user-plus {
+  &:before {
+    content: $feather-user-plus; 
+  }
+}
+.feather-user-x {
+  &:before {
+    content: $feather-user-x; 
+  }
+}
+.feather-users {
+  &:before {
+    content: $feather-users; 
+  }
+}
+.feather-video {
+  &:before {
+    content: $feather-video; 
+  }
+}
+.feather-video-off {
+  &:before {
+    content: $feather-video-off; 
+  }
+}
+.feather-voicemail {
+  &:before {
+    content: $feather-voicemail; 
+  }
+}
+.feather-volume {
+  &:before {
+    content: $feather-volume; 
+  }
+}
+.feather-volume-1 {
+  &:before {
+    content: $feather-volume-1; 
+  }
+}
+.feather-volume-2 {
+  &:before {
+    content: $feather-volume-2; 
+  }
+}
+.feather-volume-x {
+  &:before {
+    content: $feather-volume-x; 
+  }
+}
+.feather-watch {
+  &:before {
+    content: $feather-watch; 
+  }
+}
+.feather-wifi {
+  &:before {
+    content: $feather-wifi; 
+  }
+}
+.feather-wifi-off {
+  &:before {
+    content: $feather-wifi-off; 
+  }
+}
+.feather-wind {
+  &:before {
+    content: $feather-wind; 
+  }
+}
+.feather-x {
+  &:before {
+    content: $feather-x; 
+  }
+}
+.feather-x-circle {
+  &:before {
+    content: $feather-x-circle; 
+  }
+}
+.feather-x-octagon {
+  &:before {
+    content: $feather-x-octagon; 
+  }
+}
+.feather-x-square {
+  &:before {
+    content: $feather-x-square; 
+  }
+}
+.feather-youtube {
+  &:before {
+    content: $feather-youtube; 
+  }
+}
+.feather-zap {
+  &:before {
+    content: $feather-zap; 
+  }
+}
+.feather-zap-off {
+  &:before {
+    content: $feather-zap-off; 
+  }
+}
+.feather-zoom-in {
+  &:before {
+    content: $feather-zoom-in; 
+  }
+}
+.feather-zoom-out {
+  &:before {
+    content: $feather-zoom-out; 
+  }
+}
+

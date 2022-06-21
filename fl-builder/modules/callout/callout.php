@@ -167,7 +167,7 @@ class FLCalloutModule extends FLBuilderModule {
 				'photo_source'  => 'library',
 			);
 
-			echo '<div class="fl-callout-photo">';
+			echo '<div class="fl-callout-photo fl-callout-photo--' . $this->settings->photo_size . '">';
 			FLBuilder::render_module_html( 'photo', $photo_settings );
 			echo '</div>';
 		} elseif ( 'icon' == $this->settings->image_type && $this->settings->icon_position == $position ) {
@@ -249,6 +249,11 @@ FLBuilder::register_module('FLCalloutModule', array(
 						'preview'       => array(
 							'type'          => 'none',
 						),
+					),
+					'bg_color' => array(
+						'type'       => 'color',
+						'label'      => __( 'Background Color', 'fl-builder' ),
+						'show_reset' => true,
 					),
 				),
 			),
@@ -353,6 +358,25 @@ FLBuilder::register_module('FLCalloutModule', array(
 							'below-title'   => __( 'Below Heading', 'fl-builder' ),
 							'left'          => __( 'Left of Text and Heading', 'fl-builder' ),
 							'right'         => __( 'Right of Text and Heading', 'fl-builder' ),
+						),
+						'toggle' => array(
+							'above-title' => array(),
+							'below-title' => array(),
+							'left'        => array(
+								'fields' => array( 'photo_size' ),
+							),
+							'right'       => array(
+								'fields' => array( 'photo_size' ),
+							),
+						),
+					),
+					'photo_size' => array(
+						'type'          => 'select',
+						'label'         => __( 'Size', 'fl-builder' ),
+						'default'       => 'contain',
+						'options'       => array(
+							'contain'   => __( 'Contain', 'fl-builder' ),
+							'cover'     => __( 'Cover', 'fl-builder' ),
 						),
 					),
 				),

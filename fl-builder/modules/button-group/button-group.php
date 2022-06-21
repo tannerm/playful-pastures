@@ -394,7 +394,7 @@ FLBuilder::register_settings_form('buttons_form', array(
 							'label'       => __( 'Icon', 'fl-builder' ),
 							'show_remove' => true,
 							'show'        => array(
-								'fields' => array( 'icon_position', 'icon_animation' ),
+								'fields' => array( 'icon_position', 'icon_color', 'icon_size' ),
 							),
 							'preview'     => array(
 								'type' => 'none',
@@ -412,18 +412,22 @@ FLBuilder::register_settings_form('buttons_form', array(
 								'type' => 'none',
 							),
 						),
-						'icon_animation' => array(
-							'type'    => 'select',
-							'label'   => __( 'Icon Visibility', 'fl-builder' ),
-							'default' => 'disable',
-							'options' => array(
-								'disable' => __( 'Always Visible', 'fl-builder' ),
-								'enable'  => __( 'Fade In On Hover', 'fl-builder' ),
-							),
-							'preview' => array(
-								'type' => 'none',
-							),
+						'icon_color' => array(
+							'type'          => 'color',
+							'label'         => __( 'Icon Color', 'fl-builder' ),
+							'show_reset'    => true,
 						),
+						'icon_size' => array(
+							'type'    => 'unit',
+							'label'   => __( 'Icon Size', 'fl-builder' ),
+							'default' => '1.25',
+							'units'   => [ 'em' ],
+							'preview' => [
+								'type'     => 'css',
+								'selector' => '.fl-button-icon',
+								'property' => 'font-size',
+							]
+						),						
 						'click_action'   => array(
 							'type'    => 'select',
 							'label'   => __( 'Click Action', 'fl-builder' ),
@@ -509,7 +513,7 @@ FLBuilder::register_settings_form('buttons_form', array(
 		'title'         => __( 'Style', 'fl-builder' ),
 		'sections'      => array(
 			'colors'        => array(
-				'title'         => __( 'Colors', 'fl-builder' ),
+				'title'         => '',
 				'fields'        => Church\Integrations\BB::get_button_fields(),
 			),
 		),

@@ -5,6 +5,15 @@
 	$settings->bg_hover_color = $settings->bg_color;
 }*/
 
+
+// Alignment
+FLBuilderCSS::responsive_rule( array(
+	'settings'     => $settings,
+	'setting_name' => 'align',
+	'selector'     => ".fl-node-$id .fl-button-wrap",
+	'prop'         => 'text-align',
+) );
+
 // Old Background Gradient Setting
 if ( isset( $settings->three_d ) && $settings->three_d ) {
 	$settings->style = 'gradient';
@@ -42,6 +51,14 @@ if ( ! empty( $settings->bg_hover_color ) ) {
 	<?php endif; ?>
 
 }
+
+	.fl-builder-content .fl-node-<?php echo $id; ?> a.fl-button i.fl-button-icon {
+		font-size: <?php echo $settings->icon_size; ?>em;
+		<?php if ( ! empty( $settings->icon_color ) ) : ?>
+				color: <?php echo FLBuilderColor::hex_or_rgb( $settings->icon_color ); ?>;
+		<?php endif; ?>
+	}
+
 
 <?php if ( empty( $settings->text ) ) : ?>
 <?php if ( 'after' == $settings->icon_position ) : ?>

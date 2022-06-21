@@ -55,14 +55,14 @@ class BB {
 		add_filter( 'fl_builder_color_presets', array( $this, 'color_presets' ) );
 
 		// Add theme fonts
-		add_filter( 'fl_builder_font_families_system', array( $this, 'custom_fonts' ) );
+//		add_filter( 'fl_builder_font_families_system', array( $this, 'custom_fonts' ) );
 
 		// Remove Google fonts
 		add_filter( 'fl_builder_font_families_google', array( $this, 'no_google_fonts' ) );
 
 		add_filter( 'fl_builder_register_module', array( $this, 'enabled_modules' ), 10, 2 );
 
-//		add_filter( 'fl_builder_icon_sets', array( $this, 'custom_icons' ) );
+		add_filter( 'fl_builder_icon_sets', array( $this, 'custom_icons' ) );
 
 		// Add the button to insert a button into the editor
 //		add_action( 'media_buttons', array( $this, 'insert_editor_button' ), 11 );
@@ -225,64 +225,25 @@ class BB {
 	public function color_presets( $colors ) {
 		return array(
 
-			// Gray LT
+			// grayscale
 			'FFFFFF',
-			'F5F4FA',
-			'EBEAF1',
-			'DDDBE5',
-			'CAC9D5',
-			'BAB9C5',
-			'A8A7B6',
-			'9895A6',
+			'000000',
+			'171717',
+			'5F5B64',
+			'76737A',
+			'A2A1A4',
+			
+			// ui colors
+			'7F9E4F',
+			'37423D',
+			'E4D6CB',
+			'F6F0ED',
 
-			// Gray DK
-			'878597',
-			'737286',
-			'666477',
-			'59586A',
-			'4B4A5C',
-			'3C3B4E',
-			'302E3F',
-			'232233',
-
-			// Teal
-			'3BC098',
-
-			// Teal LT
-			'E7FFFA',
-			'CAF6EC',
-			'93E7D2',
-			'5CD3B4',
-
-			// Teal DK
-			'2F967C',
-			'236F61',
-			'174746',
-			'0F2A31',
-
-			// Blue
-			'53A6FD',
-
-			// Blue LT
-			'EFF8FF',
-			'D8EEFF',
-			'ACDBFE',
-			'7AC1FE',
-
-			// Blue DK
-			'427ECF',
-			'3259A2',
-			'233376',
-			'131E52',
-
-			// Red DK
-			'B95D85',
-
-			// Yellow
-			'F5DA47',
-
-			// Purple DK 2
-			'5C5CA5',
+			// alert colors
+			'1FC2A4',
+			'7F23F7',
+			'FAB20A',
+			'F24441',
 		);
 	}
 
@@ -329,32 +290,38 @@ class BB {
 		return $enabled;
 	}
 
+	/**
+	 * Add custom icons
+	 * 
+	 * @param $sets
+	 *
+	 * @return array
+	 * @since  1.0.0
+	 *
+	 * @author Tanner Moushey
+	 */
 	public function custom_icons( $sets ) {
 
-		$sets['smartvault'] = [
-			'name'       => 'SmartVault',
+		$sets['feather'] = [
+			'name'       => 'Feather',
 			'prefix'     => '',
-			'path'       => get_stylesheet_directory() . '/fonts/',
-			'url'        => get_stylesheet_directory_uri() . '/fonts/',
+			'path'       => get_stylesheet_directory() . '/assets/fonts/feather/',
+			'url'        => get_stylesheet_directory_uri() . '/assets/fonts/feather/',
 			'stylesheet' => false,
 			'type'       => 'core',
 			'icons'      => [],
 		];
 
-		$data  = json_decode( file_get_contents( $sets['smartvault']['path'] . 'config.json' ) );
+		$data  = json_decode( file_get_contents( $sets['feather']['path'] . 'selection.json' ) );
 
-		if ( isset( $data->glyphs ) ) {
+		if ( isset( $data->icons ) ) {
 
-			foreach ( $data->glyphs as $icon ) {
-				if ( $data->css_use_suffix ) {
-					$sets['smartvault']['icons'][] = $icon->css . $data->css_prefix_text;
-				} else {
-					$sets['smartvault']['icons'][] = $data->css_prefix_text . $icon->css;
-				}
+			foreach ( $data->icons as $icon ) {
+				$sets['feather']['icons'][] = 'feather-' . $icon->properties->name;
 			}
 		}
 
-		return $sets;
+		return array_reverse( $sets, true );
 	}
 
 	private function permissions_setting() {
@@ -401,7 +368,7 @@ class BB {
 		return array(
 			'button_style' => array(
 				'type'    => 'select',
-				'label'   => __( 'Button Type', 'fl-builder' ),
+				'label'   => __( 'Type', 'fl-builder' ),
 				'default' => 'is-solid',
 				'options' => array(
 					'is-solid'       => 'Solid',
@@ -411,7 +378,7 @@ class BB {
 			),
 			'button_size' => array(
 				'type'    => 'select',
-				'label'   => __( 'Button Size', 'fl-builder' ),
+				'label'   => __( 'Size', 'fl-builder' ),
 				'default' => '',
 				'options' => array(
 					''          => 'Default',
@@ -419,13 +386,56 @@ class BB {
 					'is-small'  => 'Small',
 				),
 			),
-			'button_width' => array(
+			'width'        => array(
 				'type'    => 'select',
-				'label'   => __( 'Button Width', 'fl-builder' ),
-				'default' => '',
+				'label'   => __( 'Width', 'fl-builder' ),
+				'default' => 'auto',
 				'options' => array(
-					''             => 'Default',
-					'is-fullwidth' => 'Full Width',
+					'auto'   => _x( 'Auto', 'Width.', 'fl-builder' ),
+					'full'   => __( 'Full Width', 'fl-builder' ),
+					'custom' => __( 'Custom', 'fl-builder' ),
+				),
+				'toggle'  => array(
+					'auto'   => array(
+						'fields' => array( 'align' ),
+					),
+					'full'   => array(),
+					'custom' => array(
+						'fields' => array( 'align', 'custom_width' ),
+					),
+				),
+			),
+			'custom_width' => array(
+				'type'    => 'unit',
+				'label'   => __( 'Custom Width', 'fl-builder' ),
+				'default' => '15',
+				'slider'  => array(
+					'em' => array(
+						'min'  => 0,
+						'max'  => 40,
+						'step' => .1,
+					),
+				),
+				'units'   => array(
+					'em',
+					'vw',
+					'%',
+				),
+				'preview' => array(
+					'type'     => 'css',
+					'selector' => 'a.fl-button',
+					'property' => 'width',
+				),
+			),
+			'align'        => array(
+				'type'       => 'align',
+				'label'      => __( 'Align', 'fl-builder' ),
+				'default'    => 'left',
+				'responsive' => true,
+				'preview'    => array(
+					'type'     => 'css',
+					'selector' => '.fl-button-wrap',
+					'property' => 'text-align',
 				),
 			),
 //			'button_color' => array(

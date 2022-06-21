@@ -48,3 +48,8 @@ if ( 'icon' == $settings->image_type ) {
 	line-height: <?php echo $settings->title_custom_size; ?>px;
 }
 <?php endif; ?>
+<?php if ( '' !== $settings->bg_color ) : ?>
+.fl-builder-content .fl-node-<?php echo $id; ?> .fl-callout {
+	background-color: <?php echo FLBuilderColor::hex_or_rgb( $settings->bg_color ); ?>;
+}
+<?php endif; ?>
