@@ -422,11 +422,6 @@ FLBuilder::register_settings_form('buttons_form', array(
 							'label'   => __( 'Icon Size', 'fl-builder' ),
 							'default' => '1.25',
 							'units'   => [ 'em' ],
-							'preview' => [
-								'type'     => 'css',
-								'selector' => '.fl-button-icon',
-								'property' => 'font-size',
-							]
 						),						
 						'click_action'   => array(
 							'type'    => 'select',
