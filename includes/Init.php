@@ -135,6 +135,9 @@ class Init {
 			'mobile-unit'  => 'em',
 		];
 
+		$options_array['body-font-family'] = "'Futura-PT',futura-pt,sans-serif";
+		$options_array['headings-font-family'] = "'Futura-PT',futura-pt,sans-serif";
+		
 		return $options_array;
 	}
 	
