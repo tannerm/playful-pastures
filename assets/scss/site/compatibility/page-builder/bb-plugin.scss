@@ -10,17 +10,17 @@ body .fl-module {
 		padding: 0 !important;
 	}
 	
-	.fl-button-left {
-		a.fl-button {
-			justify-content: flex-start;
-		}
-	}
-
-	.fl-button-right {
-		a.fl-button {
-			justify-content: flex-end;
-		}
-	}
+	//.fl-button-left {
+	//	> a.fl-button {
+	//		justify-content: flex-start;
+	//	}
+	//}
+	//
+	//.fl-button-right {
+	//	> a.fl-button {
+	//		justify-content: flex-end;
+	//	}
+	//}
 }
 
 .fl-builder-content {
