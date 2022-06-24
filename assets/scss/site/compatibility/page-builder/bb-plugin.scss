@@ -11,13 +11,13 @@ body .fl-module {
 	}
 	
 	.fl-button-left {
-		.fl-button {
+		a.fl-button {
 			justify-content: flex-start;
 		}
 	}
 
 	.fl-button-right {
-		.fl-button {
+		a.fl-button {
 			justify-content: flex-end;
 		}
 	}
