@@ -9,6 +9,18 @@ body .fl-module {
 	.fl-callout-title {
 		padding: 0 !important;
 	}
+	
+	.fl-button-left {
+		.fl-button {
+			justify-content: flex-start;
+		}
+	}
+
+	.fl-button-right {
+		.fl-button {
+			justify-content: flex-end;
+		}
+	}
 }
 
 .fl-builder-content {
