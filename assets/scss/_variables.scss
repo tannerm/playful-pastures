@@ -47,7 +47,7 @@ body {
 	--cp-font-size--xs: max( 10px, .64em );
 	--cp-font-size--sm: max( 12px, .8em );
 	--cp-font-size: 1em;
-	--cp-font-size--lg: 1.5em;
+	--cp-font-size--lg: 1.25em;
 	
 	--cp-font-size-h1: #{$font-size-h1}; 
 	--cp-font-size-h2: #{$font-size-h2}; 
@@ -58,6 +58,9 @@ body {
 	
 	--cp-font-weight--normal: 400;
 	--cp-font-weight--bold: 500;
+	
+	--cp-font-family--base: Futura-PT, futura-pt, sans-serif;
+	--cp-font-family--header: Futura-PT, futura-pt, sans-serif;
 	
 	// gaps, padding, margin
 	--cp-grid--gap: 1rem;
