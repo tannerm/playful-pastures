@@ -280,3 +280,8 @@ body {
 	
 	@extend %button;
 }
+
+body .tribe-events-schedule .recurringinfo .event-is-recurring, 
+body .tribe-related-event-info .recurringinfo .event-is-recurring {
+	padding-left: calc(16px + .5em);
+}
