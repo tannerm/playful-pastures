@@ -35,6 +35,14 @@ body .fl-callout {
 		}
 	}
 	
+	&-text {
+		line-height: 1.5;
+	}
+	
+	&-button {
+		padding-top: var(--cp-gap--sm);
+	}
+	
 	&-photo-left,
 	&-photo-right {
 		padding: 0;
