@@ -2,7 +2,7 @@
 @import "grid/mixins";
 @import "variables-site/typography";
 
-$md-breakpoint: calc( map-get($grid-breakpoints, 'md') / 1px ); // convert breakpoint to number
+$md-breakpoint: calc( map-get($grid-breakpoints, 'lg') / 1px ); // convert breakpoint to number
 
 $lg-font-size: #{calc(16 / 1440 * 100)}vw; // 16px at 1440px screen width
 $md-font-size: #{calc(16 / $md-breakpoint * 100)}vw; // 16 pixels at medium breakpoint 
