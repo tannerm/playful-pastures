@@ -4,6 +4,11 @@
 
 @import "beaverbuilder/callout";
 
+div.fl-row-content-wrap {
+	padding-top: var(--cp-gap--lg);
+	padding-bottom: var(--cp-gap--lg);
+}
+
 body .fl-module {
 	p,
 	.fl-callout-title {
