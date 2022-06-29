@@ -386,7 +386,7 @@ class BB {
 					'is-small'  => 'Small',
 				),
 			),
-			'width'        => array(
+			'button_width'        => array(
 				'type'    => 'select',
 				'label'   => __( 'Width', 'fl-builder' ),
 				'default' => 'auto',
@@ -427,7 +427,7 @@ class BB {
 					'property' => 'width',
 				),
 			),
-			'align'        => array(
+			'button_align'        => array(
 				'type'       => 'align',
 				'label'      => __( 'Align', 'fl-builder' ),
 				'default'    => 'left',

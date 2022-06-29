@@ -42,6 +42,13 @@ body .fl-callout {
 	&-button {
 		padding-top: var(--cp-gap--sm);
 	}
+	
+	&-text-wrap,
+	&-content {
+		display: flex;
+		flex-flow: column;
+		flex-grow: 1;
+	}
 
 	.fl-photo-img {
 		width: 100%;
@@ -102,4 +109,22 @@ body .fl-callout {
 		}
 	}
 
+}
+
+.fl-col-group-equal-height {
+	.fl-module-callout,
+	.fl-callout {
+		height: 100%;
+		display: flex;
+		flex-flow: row;
+	}
+	
+	.fl-callout-text-wrap, 
+	.fl-module-content {
+		flex-grow: 1;
+	}
+	
+	.fl-callout-button {
+		margin-top: auto;
+	}
 }

@@ -118,6 +118,7 @@ class FLCalloutModule extends FLBuilderModule {
 				'button_width'     => $this->settings->button_width,
 				'button_color'     => $this->settings->button_color,
 				'button_text'      => $this->settings->button_text,
+				'button_align'     => $this->settings->button_align,
 				'icon'             => $this->settings->btn_icon,
 				'icon_position'    => $this->settings->btn_icon_position,
 				'icon_animation'   => $this->settings->btn_icon_animation,
