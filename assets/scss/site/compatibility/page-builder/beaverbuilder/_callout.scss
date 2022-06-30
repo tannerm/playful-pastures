@@ -63,6 +63,9 @@ body .fl-callout {
 	&-photo-left,
 	&-photo-right {
 		padding: 0;
+		display: flex;
+		flex-flow: column;
+		vertical-align: middle;
 
 		.fl-callout-content {
 			padding: var(--cp-gap--md);
@@ -73,10 +76,13 @@ body .fl-callout {
 		}
 
 		@include media-breakpoint-up( 'md' ) {
+			flex-flow: row;
+
 			.fl-callout-photo {
+				display: flex;
 				position: relative;
-				vertical-align: middle;
-				width: 23.5%;
+				align-items: center;
+				flex-basis: 33%;
 				padding: 0;
 			}
 			
@@ -122,7 +128,6 @@ body .fl-callout {
 	.fl-callout {
 		height: 100%;
 		display: flex;
-		flex-flow: row;
 	}
 	
 	.fl-callout-text-wrap, 
