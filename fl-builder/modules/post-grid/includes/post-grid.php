@@ -1,20 +1,48 @@
-<?php
+<?php 
+global $fl_alternating_tracker;
 
 $settings = $settings ?? [];
-$strip_breaks = true;
-?>
+$strip_breaks = false;
+$subtitle = false;
+$position = $settings->grid_image_position;
+
+if ( ! empty( $fl_alternating_tracker ) ) {
+	$position = 'left' === $fl_alternating_tracker ? 'right' : 'left';
+	$fl_alternating_tracker = $position;
+}
+
+if ( 'left-right' === $position && empty( $fl_alternating_tracker ) ) {
+	$position = $fl_alternating_tracker = 'left';
+}
+
+if ( 'right-left' === $position && empty( $fl_alternating_tracker ) ) {
+	$position = $fl_alternating_tracker = 'right';
+}
+
+if ( 'columns' == $settings->layout ) : ?>
+<div class="fl-post-column">
+<?php endif; ?>
+
+<?php ob_start(); ?>
+	
 <div class="fl-post-grid-text">
 
 	<?php do_action( 'fl_builder_post_grid_before_meta', $settings, $module ); ?>
 
-	<?php if ( 'tribe_events' == get_post_type() ) : 
-		$strip_breaks = false;
-		$content = '[tribe_event_inline id="' . get_the_ID() . '"]' . $settings->event_template . '[/tribe_event_inline]';
-	elseif ( 'cp_staff' == get_post_type() ) : $strip_breaks = false; ?>
+	<?php if ( 'tribe_events' == get_post_type() ) { 
+		echo '[tribe_event_inline id="' . get_the_ID() . '"]' . $settings->event_template . '[/tribe_event_inline]';
+	} elseif ( 'cp_staff' == get_post_type() ) {
+		if ( $settings->show_title && $title = get_post_meta( get_the_ID(), 'title', true ) ) {
+			$subtitle = $title;
+		}
 
-	<?php else : ob_start(); ?>
-
-		<?php if ( $settings->show_author || $settings->show_date || $settings->show_comments_grid ) : ?>
+		if ( $settings->show_bio ) {
+			the_content();
+		}
+	} else { 
+		$strip_breaks = true; 
+		
+		if ( $settings->show_author || $settings->show_date || $settings->show_comments_grid ) : ?>
 			<div class="fl-post-grid-meta">
 				<?php if ( $settings->show_author ) : ?>
 					<span class="fl-post-grid-author">
@@ -62,7 +90,7 @@ $strip_breaks = true;
 
 		<?php do_action( 'fl_builder_post_grid_before_content', $settings, $module ); ?>
 
-		<?php if ( $settings->show_content || $settings->show_more_link ) : ?>
+		<?php if ( $settings->show_content || $settings->show_more_link ) { ?>
 			<div class="fl-post-grid-content">
 				<?php if ( $settings->show_content ) : ?>
 					<?php $module->render_excerpt(); ?>
@@ -72,17 +100,25 @@ $strip_breaks = true;
 					   title="<?php the_title_attribute(); ?>"><?php echo $settings->more_link_text; ?></a>
 				<?php endif; ?>
 			</div>
-		<?php $content = preg_replace( '|(?<!<br />)\s*\n|', "",  ob_get_clean() ); endif; ?>
-
-		<?php do_action( 'fl_builder_post_grid_after_content', $settings, $module ); ?>
-	<?php endif; ?>
+			<?php
+		} 
+		do_action( 'fl_builder_post_grid_after_content', $settings, $module ); 
+		?>
+	<?php } ?>
 
 </div>
 
 <?php
 
+$content = ob_get_clean();
+
+if ( $strip_breaks ) {
+	$content = preg_replace( '|(?<!<br />)\s*\n|', "",  $content );
+}
+
 $callout_settings = [
 	"title"          => get_the_title(),
+	"subtitle"       => $subtitle,
 	"text"           => $content,
 	"align"          => $settings->post_align,
 	"bg_color"       => $settings->bg_color,
@@ -91,27 +127,30 @@ $callout_settings = [
 	"photo"          => get_post_thumbnail_id(),
 	"photo_src"      => get_the_post_thumbnail_url(),
 	"photo_crop"     => "landscape",
-	"photo_position" => $settings->grid_image_position,
+	"photo_position" => $position,
 	"photo_size"     => "cover",
 	"link"           => get_the_permalink(),
 	"link_target"    => "_self",
 	"link_nofollow"  => "no",
 ];
 
-if ( in_array( $settings->grid_image_position, [ 'left', 'right' ] ) ) {
-	$callout_settings['photos_size'] = 'none';
+if ( 'cp_staff' === $settings->post_type ) {
+	$callout_settings['photo_crop'] = 'portrait';
+}
+
+if ( in_array( $position, [ 'left', 'right' ] ) ) {
+	$callout_settings['photo_crop'] = 'landscape';
 }
 
 ?>
-<?php if ( 'columns' == $settings->layout ) : ?>
-<div class="fl-post-column">
-<?php endif; ?>
-	<<?php echo $module->get_posts_container(); ?> <?php $module->render_post_class(); ?><?php FLPostGridModule::print_schema( ' itemscope itemtype="' . FLPostGridModule::schema_itemtype() . '"' ); ?>>
 
-		<?php FLPostGridModule::schema_meta(); ?>
-		<?php FLBuilder::render_module_html( 'callout', $callout_settings ); ?>
+<<?php echo $module->get_posts_container(); ?> <?php $module->render_post_class(); ?><?php FLPostGridModule::print_schema( ' itemscope itemtype="' . FLPostGridModule::schema_itemtype() . '"' ); ?>>
 
-	</<?php echo $module->get_posts_container(); ?>>
+	<?php FLPostGridModule::schema_meta(); ?>
+	<?php FLBuilder::render_module_html( 'callout', $callout_settings ); ?>
+
+</<?php echo $module->get_posts_container(); ?>>
+
 <?php if ( 'columns' == $settings->layout ) : ?>
 	</div>
 <?php endif; ?>

@@ -35,7 +35,7 @@ body .fl-callout {
 	}
 
 	&-photo-above-title {
-		.fl-callout-title, .fl-callout-text-wrap {
+		.fl-callout-title, .fl-callout-text-wrap, .fl-callout-subtitle {
 			padding: 0;
 			margin: var(--cp-gap--sm) var(--cp-gap--sm) var(--cp-gap-base);
 		}

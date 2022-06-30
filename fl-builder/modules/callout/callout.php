@@ -64,6 +64,7 @@ class FLCalloutModule extends FLBuilderModule {
 	 * @method render_title
 	 */
 	public function render_title() {
+		echo '<div class="fl-callout-title-wrap"><div class="fl-callout-title-wrap-inner">';
 		echo '<' . $this->settings->title_tag . ' class="fl-callout-title">';
 
 		$this->render_image( 'left-title' );
@@ -85,6 +86,11 @@ class FLCalloutModule extends FLBuilderModule {
 		$this->render_image( 'right-title' );
 
 		echo '</' . $this->settings->title_tag . '>';
+		
+		if ( $this->settings->subtitle ) {
+			echo '<h5 class="fl-callout-subtitle">' . $this->settings->subtitle . '</h5>';
+		}
+		echo '</div></div>';
 	}
 
 	/**

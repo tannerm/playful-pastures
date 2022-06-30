@@ -97,7 +97,7 @@ class EventsCalendar {
 	 * @author Tanner Moushey
 	 */
 	public function event_ministry( $id ) {
-		$tax = 'tribe_events_cat';
+		$tax = self::$_ministry_tax;
 		
 		$terms = wp_get_object_terms( $id, $tax, [ 'fields' => 'names' ] );
 		
@@ -108,6 +108,16 @@ class EventsCalendar {
 		return implode( ', ', $terms );		
 	}
 
+	/**
+	 * Add a date flag
+	 * 
+	 * @param $id
+	 *
+	 * @return string
+	 * @since  1.0.0
+	 *
+	 * @author Tanner Moushey
+	 */
 	public function date_flag( $id ) {
 		$month = tribe_get_start_date( $id, false, 'M' );
 		$day = tribe_get_start_date( $id, false, 'd' );
@@ -118,7 +128,14 @@ class EventsCalendar {
 		
 		return sprintf( '<div class="date-flag"><div class="h5">%s</div><div class="h3">%s</div></div>', strtoupper( $month ), $day );
 	}
-	
+
+	/**
+	 * Register the ministry taxonomy
+	 * 
+	 * @since  1.0.0
+	 *
+	 * @author Tanner Moushey
+	 */
 	public function register_ministry_tax() {
 		$plural_label = 'Ministries';
 		$single_label = 'Ministry';

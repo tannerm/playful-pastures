@@ -731,19 +731,19 @@ FLBuilder::register_module( 'FLPostGridModule', array(
 							'unit'     => 'rem',
 						),
 					),
-					'post_padding'             => array(
-						'type'    => 'unit',
-						'label'   => __( 'Post Padding', 'fl-builder' ),
-						'default' => '0',
-						'units'   => array( 'rem' ),
-						'slider'  => true,
-						'preview' => array(
-							'type'     => 'css',
-							'selector' => '.fl-post-grid-text',
-							'property' => 'padding',
-							'unit'     => 'rem',
-						),
-					),
+//					'post_padding'             => array(
+//						'type'    => 'unit',
+//						'label'   => __( 'Post Padding', 'fl-builder' ),
+//						'default' => '0',
+//						'units'   => array( 'rem' ),
+//						'slider'  => true,
+//						'preview' => array(
+//							'type'     => 'css',
+//							'selector' => '.fl-post-grid-text',
+//							'property' => 'padding',
+//							'unit'     => 'rem',
+//						),
+//					),
 					'feed_post_padding'        => array(
 						'type'    => 'unit',
 						'label'   => __( 'Post Padding', 'fl-builder' ),
@@ -809,6 +809,29 @@ FLBuilder::register_module( 'FLPostGridModule', array(
 					),
 				],
 			],
+			'staff_info' => [
+				'title'  => __( 'Staff', 'fl-builder' ),
+				'fields' => [
+					'show_title' => array(
+						'type'    => 'select',
+						'label'   => __( 'Title', 'fl-builder' ),
+						'default' => '1',
+						'options' => array(
+							'1' => __( 'Show', 'fl-builder' ),
+							'0' => __( 'Hide', 'fl-builder' ),
+						),
+					),
+					'show_bio' => array(
+						'type'    => 'select',
+						'label'   => __( 'Bio', 'fl-builder' ),
+						'default' => '0',
+						'options' => array(
+							'1' => __( 'Show', 'fl-builder' ),
+							'0' => __( 'Hide', 'fl-builder' ),
+						),
+					),
+				],
+			],
 			'image'      => array(
 				'title'  => __( 'Featured Image', 'fl-builder' ),
 				'fields' => array(
@@ -826,10 +849,11 @@ FLBuilder::register_module( 'FLPostGridModule', array(
 						'label'   => __( 'Image Position', 'fl-builder' ),
 						'default' => 'above-title',
 						'options' => array(
-							'above-title' => __( 'Above Heading', 'fl-builder' ),
-							'below-title' => __( 'Below Heading', 'fl-builder' ),
-							'left'        => __( 'Left of Text and Heading', 'fl-builder' ),
-							'right'       => __( 'Right of Text and Heading', 'fl-builder' ),
+							'above-title' => __( 'Top', 'fl-builder' ),
+							'left'        => __( 'Left', 'fl-builder' ),
+							'right'       => __( 'Right', 'fl-builder' ),
+							'left-right'  => __( 'Alternating Left and Right', 'fl-builder' ),
+							'right-left'  => __( 'Alternating Right and Left', 'fl-builder' ),
 						),
 					),
 					'image_position'      => array(

@@ -14,14 +14,17 @@
 				showContent = form.find( 'select[name=show_content]' );
 
 			layout.on( 'change', this._layoutChanged.bind( this ) );
+			layout.on( 'change', this._toggleCustomSection.bind( this ) );
 			postType.on( 'change', this._toggleEventsSection.bind( this ) );
+			postType.on( 'change', this._toggleCustomSection.bind( this ) );
 			showContent.on( 'change', this._showContentChanged.bind(this) );
 			resizeFields.find( 'input' ).on( 'input', this._resizeLayout.bind( this ) );
 			resizeFields.find( 'select' ).on( 'change', this._resizeLayout.bind( this ) );
 			buttonBgColor.on( 'change', this._previewButtonBackground );
-			icon.on( 'change', this._flipSettings );
-			this._flipSettings();
-			this._toggleEventsSection();
+//			icon.on( 'change', this._flipSettings );
+//			this._flipSettings();
+//			this._toggleEventsSection();
+			this._toggleCustomSection();
 		},
 
 		/**
@@ -53,6 +56,48 @@
 			} else {
 				tecEventsSection.hide();
 				tecEventsButtonSection.hide();
+			}
+			
+		},
+		
+		/**
+		 * Toggle 'The Calendar Events' section.
+		 * @since TDB
+		 */
+		_toggleCustomSection: function () {
+			var form = $( '.fl-builder-settings' ),
+				tecEventInfoSection = form.find('#fl-builder-settings-section-event_info'),
+				tecStaffInfoSection = form.find('#fl-builder-settings-section-staff_info'),
+				sectionInfo = form.find('#fl-builder-settings-section-info'),
+				sectionTerms = form.find('#fl-builder-settings-section-terms'),
+				sectionContent = form.find('#fl-builder-settings-section-content'),
+				dataSource = form.find('#fl-field-data_source select').val(),
+				selectedPostType = form.find( 'select[name=post_type]' ).val();
+			
+			if ( 'custom_query' !== dataSource ) {
+				return;
+			}
+			
+			if ( 'tribe_events' === selectedPostType ) {
+				tecEventInfoSection.show();
+			} else {
+				tecEventInfoSection.hide();
+			}
+			
+			if ( 'cp_staff' === selectedPostType ) {
+				tecStaffInfoSection.show();
+			} else {
+				tecStaffInfoSection.hide();
+			}
+			
+			if ( 'tribe_events' === selectedPostType || 'cp_staff' === selectedPostType ) {
+				sectionInfo.hide();
+				sectionTerms.hide();
+				sectionContent.hide()
+			} else {
+				sectionInfo.show();
+				sectionTerms.show();
+				sectionContent.show()
 			}
 			
 		},
