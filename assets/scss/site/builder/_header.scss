@@ -258,6 +258,13 @@
 			line-height: 3;
 		}
 	}
+	
+	#masthead div.ast-primary-header-bar.main-header-bar {
+		@include media-breakpoint-down( 'sm' ) {
+			padding: var(--cp-gap--sm);
+		}
+	}
+	
 }
 .site-footer-section {
 	justify-content: center;
