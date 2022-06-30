@@ -158,12 +158,11 @@ class EventsCalendar {
 		);
 
 		$args = array(
-			'hierarchical'      => true,
-			'labels'            => $labels,
-			'show_ui'           => true,
-			'show_admin_column' => true,
-			'query_var'         => true,
-			'rewrite'           => array( 'slug' => strtolower( $plural_label ) ),
+			'hierarchical'       => true,
+			'labels'             => $labels,
+			'show_ui'            => true,
+			'show_admin_column'  => true,
+			'publicly_queryable' => false,
 		);
 		
 		register_taxonomy( self::$_ministry_tax, 'tribe_events', $args );
