@@ -163,6 +163,11 @@
 #masthead {
 	.ast-builder-grid-row-container {
 		padding: 0 !important;
+		
+		@include media-breakpoint-up( 'xxl' ) {
+			max-width: calc( var(--cp-content-width) - var(--cp-gap--md) );
+		}
+
 	}
 }
 
