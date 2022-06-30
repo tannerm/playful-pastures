@@ -1,9 +1,15 @@
 // callout
-body .fl-callout {
+
+body .fl-callout,
+body .fl-post-grid-post {
 	background: var(--cp-color-canvas-main);
-	padding-bottom: var(--cp-gap-base);
 	border-radius: var(--cp-border-radius-sm);
+}
+
+body .fl-callout {
+	padding-bottom: var(--cp-gap-base);
 	overflow: hidden;
+	height: 100%;
 
 	img {
 		border-radius: 0;

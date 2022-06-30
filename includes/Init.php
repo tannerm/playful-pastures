@@ -42,6 +42,7 @@ class Init {
 		Shortcodes::get_instance();
 		Integrations\BB::get_instance();
 		Integrations\TinyMCE::get_instance();
+		Integrations\EventsCalendar::get_instance();
 	}
 
 	/**
