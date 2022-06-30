@@ -63,7 +63,14 @@ class Shortcodes {
 		if ( ! class_exists( 'CP_Locations\Models\Location' ) ) {
 			return '';
 		}
+
+		$location_id = get_query_var( 'cp_location_id' );
 		
+		if ( $location = \CP_Locations\Setup\Taxonomies\Location::get_rewrite_location() ) {
+			$location_id = $location['ID'];
+		}
+		
+		switch_to_blog( get_main_site_id() );
 		$locations = \CP_Locations\Models\Location::get_all_locations( true );
 		
 		ob_start(); ?>
@@ -71,7 +78,7 @@ class Shortcodes {
 		<div class="dropdown is-right cp-location-dropdown">
 			<div class="dropdown-trigger">
 				<a href="#" class="cp-button is-transparent is-large is-em" aria-haspopup="true" aria-controls="dropdown-menu6">
-					<?php if ( $location_id = get_query_var( 'cp_location_id' ) ) : ?>
+					<?php if ( $location_id ) : ?>
 						<i data-feather="map-pin" class="is-small" aria-hidden="true"></i>
 						<span class="text-small"><?php echo get_the_title( $location_id ); ?></span>
 					<?php else : ?>
@@ -105,13 +112,14 @@ class Shortcodes {
 							</div>
 						<?php endforeach; ?>
 						
-						<a class="cp-button is-fullwidth is-em is-small" href="/locations"><?php _e( 'View on Map', 'cp-theme-default' ); ?></a>
+						<a class="cp-button is-fullwidth is-em is-small" href="<?php echo get_home_url(); ?>/locations"><?php _e( 'View on Map', 'cp-theme-default' ); ?></a>
 					</div>
 				</div>
 			</div>
 		</div>		
 		
 		<?php
+		restore_current_blog();
 		add_action( 'wp_footer', [ $this, 'location_select_js' ] );
 		return ob_get_clean();
 	}
