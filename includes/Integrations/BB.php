@@ -427,6 +427,24 @@ class BB {
 					'property' => 'width',
 				),
 			),
+			'button_color' => array(
+				'type'    => 'select',
+				'label'   => __( 'Button Color', 'fl-builder' ),
+				'default' => '',
+				'options' => array(
+					''               => 'Primary',
+					'is-light'        => 'Light',
+				),
+			),
+//			'button_text'  => array(
+//				'type'    => 'select',
+//				'label'   => __( 'Button Text', 'fl-builder' ),
+//				'default' => '',
+//				'options' => array(
+//					''        => 'Normal',
+//					'is-caps' => 'Uppercase',
+//				),
+//			),
 			'button_align'        => array(
 				'type'       => 'align',
 				'label'      => __( 'Align', 'fl-builder' ),
@@ -438,32 +456,6 @@ class BB {
 					'property' => 'text-align',
 				),
 			),
-//			'button_color' => array(
-//				'type'    => 'select',
-//				'label'   => __( 'Button Color', 'fl-builder' ),
-//				'default' => '',
-//				'options' => array(
-//					''               => 'Default (uses row default)',
-//					'is-teal'        => 'Teal',
-//					'is-teal-lt'     => 'Light Teal',
-//					'is-teal-dk'     => 'Dark Teal',
-//					'is-blue'        => 'Blue',
-//					'is-blue-lt'     => 'Light Blue',
-//					'is-white'       => 'White',
-//					'is-white-black' => 'White/Black',
-//					'is-white-blue'  => 'White/Blue',
-//					'is-yellow'      => 'Yellow',
-//				),
-//			),
-//			'button_text'  => array(
-//				'type'    => 'select',
-//				'label'   => __( 'Button Text', 'fl-builder' ),
-//				'default' => '',
-//				'options' => array(
-//					''        => 'Normal',
-//					'is-caps' => 'Uppercase',
-//				),
-//			),
 		);
 	}
 
