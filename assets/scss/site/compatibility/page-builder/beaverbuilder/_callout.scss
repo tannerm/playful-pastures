@@ -65,7 +65,7 @@ body .fl-callout {
 		padding: 0;
 		display: flex;
 		flex-flow: column;
-		vertical-align: middle;
+		align-items: center;
 
 		.fl-callout-content {
 			padding: var(--cp-gap--md);
