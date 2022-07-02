@@ -15,7 +15,7 @@ if ( 'enable' == $settings->icon_animation ) {
 $button_classes .= $settings->button_style . ' ' . $settings->button_size . ' ' . $settings->button_color . ' ' . $settings->button_text;
 
 // $button_width is no longer used
-if ( 'full' === $settings->width || 'full' === $settings->button_width || 'is-fullwidth' === $settings->button_width ) {
+if ( 'full' === $settings->button_width || 'is-fullwidth' === $settings->button_width ) {
 	$button_classes .= ' is-fullwidth';
 }
 

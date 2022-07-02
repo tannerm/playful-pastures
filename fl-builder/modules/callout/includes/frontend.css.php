@@ -42,7 +42,7 @@ if ( 'icon' == $settings->image_type ) {
 }
 
 ?>
-<?php if ( 'custom' == $settings->title_size ) : ?>
+<?php if ( 0 && 'custom' == $settings->title_size ) : ?>
 .fl-builder-content .fl-node-<?php echo $id; ?> .fl-callout-title {
 	font-size: <?php echo $settings->title_custom_size; ?>px;
 	line-height: <?php echo $settings->title_custom_size; ?>px;

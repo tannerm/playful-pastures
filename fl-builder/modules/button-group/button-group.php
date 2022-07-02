@@ -203,16 +203,16 @@ FLBuilder::register_module('FLButtonGroupModule', array(
 					'custom_width'   => array(
 						'type'    => 'unit',
 						'label'   => __( 'Custom Width', 'fl-builder' ),
-						'default' => '200',
+						'default' => '12.5',
 						'slider'  => array(
-							'px' => array(
+							'em' => array(
 								'min'  => 0,
-								'max'  => 1000,
-								'step' => 10,
+								'max'  => 100,
+								'step' => .5,
 							),
 						),
 						'units'   => array(
-							'px',
+							'em',
 							'vw',
 							'%',
 						),
@@ -231,24 +231,24 @@ FLBuilder::register_module('FLButtonGroupModule', array(
 						'label'      => __( 'Container Padding', 'fl-builder' ),
 						'responsive' => true,
 						'slider'     => true,
-						'units'      => array( 'px' ),
+						'units'      => array( 'em' ),
 						'help'       => __( 'This applies to the entire Button Group module itself.', 'fl-builder' ),
 					),
-					'button_padding' => array(
-						'type'       => 'dimension',
-						'label'      => __( 'Button Padding', 'fl-builder' ),
-						'responsive' => true,
-						'slider'     => true,
-						'units'      => array( 'px' ),
-						'help'       => __( 'Apply padding to all buttons. This can be overridden in the individual button settings.', 'fl-builder' ),
-					),
+//					'button_padding' => array(
+//						'type'       => 'dimension',
+//						'label'      => __( 'Button Padding', 'fl-builder' ),
+//						'responsive' => true,
+//						'slider'     => true,
+//						'units'      => array( 'em' ),
+//						'help'       => __( 'Apply padding to all buttons. This can be overridden in the individual button settings.', 'fl-builder' ),
+//					),
 					'button_spacing' => array(
 						'type'         => 'dimension',
 						'label'        => __( 'Button Spacing', 'fl-builder' ),
 						'responsive'   => true,
 						'slider'       => true,
-						'default'      => '5',
-						'default_unit' => 'px',
+						'default'      => '.5',
+						'default_unit' => 'em',
 						'units'        => array(
 							'px',
 							'em',
@@ -258,110 +258,110 @@ FLBuilder::register_module('FLButtonGroupModule', array(
 					),
 				),
 			),
-			'text'   => array(
-				'title'  => __( 'Text', 'fl-builder' ),
-				'fields' => array(
-					'text_color'       => array(
-						'type'        => 'color',
-						'connections' => array( 'color' ),
-						'label'       => __( 'Text Color', 'fl-builder' ),
-						'default'     => '',
-						'show_reset'  => true,
-						'show_alpha'  => true,
-					),
-					'text_hover_color' => array(
-						'type'        => 'color',
-						'connections' => array( 'color' ),
-						'label'       => __( 'Text Hover Color', 'fl-builder' ),
-						'default'     => '',
-						'show_reset'  => true,
-						'show_alpha'  => true,
-					),
-					'typography'       => array(
-						'type'       => 'typography',
-						'label'      => __( 'Typography', 'fl-builder' ),
-						'responsive' => true,
-					),
-				),
-			),
-			'colors' => array(
-				'title'  => __( 'Background', 'fl-builder' ),
-				'fields' => array(
-					'bg_color'          => array(
-						'type'        => 'color',
-						'connections' => array( 'color' ),
-						'label'       => __( 'Background Color', 'fl-builder' ),
-						'default'     => '',
-						'show_reset'  => true,
-						'show_alpha'  => true,
-						'preview'     => array(
-							'type' => 'refresh',
-						),
-					),
-					'bg_hover_color'    => array(
-						'type'        => 'color',
-						'connections' => array( 'color' ),
-						'label'       => __( 'Background Hover Color', 'fl-builder' ),
-						'default'     => '',
-						'show_reset'  => true,
-						'show_alpha'  => true,
-						'preview'     => array(
-							'type'     => 'css',
-							'selector' => '.fl-button-group-buttons a.fl-button:hover',
-							'property' => 'background-color',
-						),
-					),
-					'style'             => array(
-						'type'    => 'select',
-						'label'   => __( 'Background Style', 'fl-builder' ),
-						'default' => 'flat',
-						'options' => array(
-							'flat'     => __( 'Flat', 'fl-builder' ),
-							'gradient' => __( 'Gradient', 'fl-builder' ),
-						),
-						'preview' => array(
-							'type' => 'refresh',
-						),
-					),
-					'button_transition' => array(
-						'type'    => 'select',
-						'label'   => __( 'Background Animation', 'fl-builder' ),
-						'default' => 'disable',
-						'options' => array(
-							'disable' => __( 'Disabled', 'fl-builder' ),
-							'enable'  => __( 'Enabled', 'fl-builder' ),
-						),
-						'preview' => array(
-							'type' => 'none',
-						),
-					),
-				),
-			),
-			'border' => array(
-				'title'  => __( 'Border', 'fl-builder' ),
-				'fields' => array(
-					'border'             => array(
-						'type'       => 'border',
-						'label'      => __( 'Border', 'fl-builder' ),
-						'responsive' => true,
-						'preview'    => array(
-							'type'     => 'css',
-							'selector' => '.fl-button-group .fl-button-group-buttons a.fl-button',
-						),
-					),
-					'border_hover_color' => array(
-						'type'        => 'color',
-						'connections' => array( 'color' ),
-						'label'       => __( 'Border Hover Color', 'fl-builder' ),
-						'default'     => '',
-						'show_reset'  => true,
-						'show_alpha'  => true,
-						'preview'     => array(
-							'type' => 'none',
-						),
-					),
-				),
-			),
+//			'text'   => array(
+//				'title'  => __( 'Text', 'fl-builder' ),
+//				'fields' => array(
+//					'text_color'       => array(
+//						'type'        => 'color',
+//						'connections' => array( 'color' ),
+//						'label'       => __( 'Text Color', 'fl-builder' ),
+//						'default'     => '',
+//						'show_reset'  => true,
+//						'show_alpha'  => true,
+//					),
+//					'text_hover_color' => array(
+//						'type'        => 'color',
+//						'connections' => array( 'color' ),
+//						'label'       => __( 'Text Hover Color', 'fl-builder' ),
+//						'default'     => '',
+//						'show_reset'  => true,
+//						'show_alpha'  => true,
+//					),
+//					'typography'       => array(
+//						'type'       => 'typography',
+//						'label'      => __( 'Typography', 'fl-builder' ),
+//						'responsive' => true,
+//					),
+//				),
+//			),
+//			'colors' => array(
+//				'title'  => __( 'Background', 'fl-builder' ),
+//				'fields' => array(
+//					'bg_color'          => array(
+//						'type'        => 'color',
+//						'connections' => array( 'color' ),
+//						'label'       => __( 'Background Color', 'fl-builder' ),
+//						'default'     => '',
+//						'show_reset'  => true,
+//						'show_alpha'  => true,
+//						'preview'     => array(
+//							'type' => 'refresh',
+//						),
+//					),
+//					'bg_hover_color'    => array(
+//						'type'        => 'color',
+//						'connections' => array( 'color' ),
+//						'label'       => __( 'Background Hover Color', 'fl-builder' ),
+//						'default'     => '',
+//						'show_reset'  => true,
+//						'show_alpha'  => true,
+//						'preview'     => array(
+//							'type'     => 'css',
+//							'selector' => '.fl-button-group-buttons a.fl-button:hover',
+//							'property' => 'background-color',
+//						),
+//					),
+//					'style'             => array(
+//						'type'    => 'select',
+//						'label'   => __( 'Background Style', 'fl-builder' ),
+//						'default' => 'flat',
+//						'options' => array(
+//							'flat'     => __( 'Flat', 'fl-builder' ),
+//							'gradient' => __( 'Gradient', 'fl-builder' ),
+//						),
+//						'preview' => array(
+//							'type' => 'refresh',
+//						),
+//					),
+//					'button_transition' => array(
+//						'type'    => 'select',
+//						'label'   => __( 'Background Animation', 'fl-builder' ),
+//						'default' => 'disable',
+//						'options' => array(
+//							'disable' => __( 'Disabled', 'fl-builder' ),
+//							'enable'  => __( 'Enabled', 'fl-builder' ),
+//						),
+//						'preview' => array(
+//							'type' => 'none',
+//						),
+//					),
+//				),
+//			),
+//			'border' => array(
+//				'title'  => __( 'Border', 'fl-builder' ),
+//				'fields' => array(
+//					'border'             => array(
+//						'type'       => 'border',
+//						'label'      => __( 'Border', 'fl-builder' ),
+//						'responsive' => true,
+//						'preview'    => array(
+//							'type'     => 'css',
+//							'selector' => '.fl-button-group .fl-button-group-buttons a.fl-button',
+//						),
+//					),
+//					'border_hover_color' => array(
+//						'type'        => 'color',
+//						'connections' => array( 'color' ),
+//						'label'       => __( 'Border Hover Color', 'fl-builder' ),
+//						'default'     => '',
+//						'show_reset'  => true,
+//						'show_alpha'  => true,
+//						'preview'     => array(
+//							'type' => 'none',
+//						),
+//					),
+//				),
+//			),
 		),
 	),
 ));
