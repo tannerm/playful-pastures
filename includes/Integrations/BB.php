@@ -74,6 +74,8 @@ class BB {
 			add_filter( 'body_class', [ $this, 'add_role_to_body' ] );
 			add_filter( 'admin_body_class', [ $this, 'add_role_to_body' ] );
 		}
+		
+		add_filter( 'fl_builder_loop_taxonomies', [ $this, 'custom_taxonomies' ], 10, 3 );
 
 	}
 
@@ -459,4 +461,25 @@ class BB {
 		);
 	}
 
+	/**
+	 * Some of our custom taxonomies are not included by default
+	 * 
+	 * @param $data
+	 * @param $taxonomies
+	 * @param $post_type
+	 *
+	 * @return mixed
+	 * @since  1.0.0
+	 *
+	 * @author Tanner Moushey
+	 */
+	public function custom_taxonomies( $data, $taxonomies, $post_type ) {
+		
+		// add locations to the query
+		if ( isset( $taxonomies['cp_location'] ) ) {
+			$data['cp_location'] = $taxonomies['cp_location'];
+		}
+		
+		return $data;
+	}
 }
