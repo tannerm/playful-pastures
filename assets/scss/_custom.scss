@@ -17,6 +17,9 @@
 	}
 }
 
+a[href$="/live/"] {
+	display: none;
+}
 
 .cp-location-header {
 	@extend %text-xlarge;
