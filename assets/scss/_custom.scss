@@ -11,11 +11,18 @@
 	}
 }
 
-.cp_location-none .site-footer-primary-section-1 {
-	.widget:first-child {
+.cp_location-none {
+	.site-footer-primary-section-1 {
+		.widget:first-child {
+			display: none;
+		}
+	}
+	
+	.sidebar-widgets-footer-widget-5 {
 		display: none;
 	}
-}
+} 
+
 
 a[href$="/live/"] {
 	display: none !important;
