@@ -127,6 +127,6 @@ a[href$="/live/"] {
 
 .cpl-widget--single-item {
 	a:not(:hover) {
-		text-decoration: none;
+		text-decoration: none !important;
 	}
 }
