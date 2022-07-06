@@ -1,3 +1,23 @@
+
+.cp_location-none {
+	.location-show {
+		display: none;
+	}
+}
+
+.cp_location-found {
+	.location-hide {
+		display: none;
+	}
+}
+
+.cp_location-none .site-footer-primary-section-1 {
+	.widget:first-child {
+		display: none;
+	}
+}
+
+
 .cp-location-header {
 	@extend %text-xlarge;
 	height: 100%;

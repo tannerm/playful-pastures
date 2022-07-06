@@ -282,7 +282,9 @@
 	--ast-global-color-0: white;
 	padding-top: 45px;
 	padding-bottom: 45px;
+	color: var(--cp-color-text-primary);
 
+	h2,
 	.widget-title {
 		--ast-global-color-1: white;
 		@extend %text-xlarge;
@@ -291,6 +293,10 @@
 		//margin-bottom: 1em;
 		//line-height: 1.5;
 	}	
+	
+	.wp-block-group {
+		padding: 0;
+	}
 }
 
 .site-above-footer-wrap,
