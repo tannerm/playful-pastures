@@ -120,19 +120,7 @@ class Shortcodes {
 		
 		<?php
 		restore_current_blog();
-		add_action( 'wp_footer', [ $this, 'location_select_js' ] );
 		return ob_get_clean();
 	}
 	
-	public function location_select_js() {
-		?>
-		<script>
-			jQuery('.cp-location-dropdown').on('change', function(e) {
-				if (jQuery(e.target).val()) {
-					window.location = jQuery(e.target).val();
-				}
-			})
-		</script>
-		<?php
-	}
 }
