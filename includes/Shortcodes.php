@@ -98,7 +98,7 @@ class Shortcodes {
 								continue;
 							}
 						?>
-							<div onclick="window.location = '<?php echo get_the_permalink( $location->ID ); ?>';" class="cp-location-dropdown--item">
+							<a href="<?php echo get_the_permalink( $location->ID ); ?>" class="cp-location-dropdown--item">
 								<div class="cp-location-dropdown--item--thumb">
 									<?php if ( ! empty( $loc->get_thumbnail()['thumbnail'] ) ) : ?>
 										<img alt="location thumbnail" src="<?php echo $loc->get_thumbnail()['thumbnail']; ?>" />
@@ -109,7 +109,7 @@ class Shortcodes {
 									<div class="cp-location-dropdown--item--title"><?php echo get_the_title( $location->ID ); ?></div>
 									<div class="cp-location-dropdown--item--desc text-xsmall"><?php echo $loc->pastor; ?></div>
 								</div>
-							</div>
+							</a>
 						<?php endforeach; ?>
 						
 						<a class="cp-button is-fullwidth is-em is-small" href="<?php echo get_home_url(); ?>/locations"><?php _e( 'View on Map', 'cp-theme-default' ); ?></a>
