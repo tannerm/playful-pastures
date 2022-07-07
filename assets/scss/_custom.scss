@@ -18,8 +18,8 @@
 		}
 	}
 	
-	.sidebar-widgets-footer-widget-5 {
-		display: none;
+	.footer-widget-area[data-section="sidebar-widgets-footer-widget-5"] {
+		display: none !important;
 	}
 } 
 
