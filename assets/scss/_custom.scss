@@ -79,9 +79,16 @@ a[href$="/live/"] {
 	margin: auto;
 }
 
+// main page menu customizations
 .cp_location-none {
 	.ast-builder-menu {
 		display: none;
+	}
+
+	.ast-mobile-popup-inner {
+		.ast-header-html-2 .ast-header-html {
+			border-top: none;
+		}
 	}
 }
 
