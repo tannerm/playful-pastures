@@ -116,7 +116,7 @@ if ( $strip_breaks ) {
 	$content = preg_replace( '|(?<!<br />)\s*\n|', "",  $content );
 }
 
-$callout_settings = [
+$callout_settings = apply_filters( 'cp_post_grid_callout_settings', [
 	"title"          => get_the_title(),
 	"subtitle"       => $subtitle,
 	"text"           => $content,
@@ -132,7 +132,7 @@ $callout_settings = [
 	"link"           => get_the_permalink(),
 	"link_target"    => "_self",
 	"link_nofollow"  => "no",
-];
+], $settings, $module );
 
 if ( 'cp_staff' === $settings->post_type ) {
 	$callout_settings['photo_crop'] = 'portrait';
