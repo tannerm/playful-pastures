@@ -24,7 +24,7 @@
 } 
 
 
-a[href$="/live/"] {
+.cp-not-live a[href$="/live/"] {
 	display: none !important;
 }
 
