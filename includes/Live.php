@@ -97,7 +97,6 @@ class Live {
 			'part'      => 'snippet',
 			'type'      => 'video',
 			'eventType' => 'live',
-			'key'       => 'AIzaSyAb9_oWNWgWrndmHMX3fyLFxK42BWL7UkY'
 		];
 
 		$url = 'https://www.googleapis.com/youtube/v3/search';
@@ -126,12 +125,13 @@ class Live {
 			$sites_live[ $site_id ] = false;
 			
 			// return early if the channel is not set or we don't pass the time check
-			if ( empty( $data['channel'] ) || ! $this->time_check( $data['times'] ) ) {
+			if ( empty( $data['api_key'] ) || empty( $data['channel'] ) || ! $this->time_check( $data['times'] ) ) {
 				continue;
 			}
 			
 			// set the ChannelID
 			$args['channelId'] = $data['channel'];
+			$args['key']       = $data['api_key'];
 
 			$search   = add_query_arg( $args, $url );
 			$response = wp_remote_get( $search );
@@ -180,10 +180,11 @@ class Live {
 		
 		foreach( $locations as $location ) {
 			if ( $channel_id = get_post_meta( $location->ID, 'youtube_channel_id', true ) ) {
-				$sites[ $location->ID ] = [ 
-					'channel' => $channel_id,
-					'times' => get_post_meta( $location->ID, 'service_times', true ),
-					'duration' => get_post_meta( $location->ID, 'live_duration', true ),
+				$sites[ $location->ID ] = [
+					'channel'  => $channel_id,
+					'times'    => get_post_meta( $location->ID, 'service_times', true ),
+					'duration' => get_post_meta( $location->ID, 'live_video_duration', true ),
+					'api_key'  => get_post_meta( $location->ID, 'youtube_api_key', true ),
 				];
 			}
 		}
