@@ -24,8 +24,8 @@
 } 
 
 
-.cp-not-live a[href$="/live/"] {
-	display: none !important;
+.cp-not-live a[href$="/live/"] i {
+	//display: none;
 }
 
 .cp-location-header {

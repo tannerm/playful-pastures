@@ -40,6 +40,7 @@ class Init {
 		$this->actions();
 		
 		Shortcodes::get_instance();
+		Live::get_instance();
 		Integrations\BB::get_instance();
 		Integrations\TinyMCE::get_instance();
 		Integrations\EventsCalendar::get_instance();
