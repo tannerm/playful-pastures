@@ -86,7 +86,7 @@ class Init {
 		$options_array['font-size-h1'] = [
 			'desktop'      => '3.052',
 			'tablet'       => '3.052',
-			'mobile'       => '3.052',
+			'mobile'       => '2.25',
 			'desktop-unit' => 'em',
 			'tablet-unit'  => 'em',
 			'mobile-unit'  => 'em',
@@ -95,7 +95,7 @@ class Init {
 		$options_array['font-size-h2'] = [
 			'desktop'      => '2.441',
 			'tablet'       => '2.441',
-			'mobile'       => '2.441',
+			'mobile'       => '1.8',
 			'desktop-unit' => 'em',
 			'tablet-unit'  => 'em',
 			'mobile-unit'  => 'em',
@@ -104,7 +104,7 @@ class Init {
 		$options_array['font-size-h3'] = [
 			'desktop'      => '1.953',
 			'tablet'       => '1.953',
-			'mobile'       => '1.953',
+			'mobile'       => '1.44',
 			'desktop-unit' => 'em',
 			'tablet-unit'  => 'em',
 			'mobile-unit'  => 'em',
