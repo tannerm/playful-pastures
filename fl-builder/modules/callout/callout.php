@@ -64,27 +64,35 @@ class FLCalloutModule extends FLBuilderModule {
 	 * @method render_title
 	 */
 	public function render_title() {
+		echo '<div class="fl-callout-title-wrap"><div class="fl-callout-title-wrap-inner">';
 		echo '<' . $this->settings->title_tag . ' class="fl-callout-title">';
 
 		$this->render_image( 'left-title' );
+		
+		if ( ! empty( $this->settings->title ) ) {
+			echo '<span' . ( empty( $this->settings->link ) ? ' class="fl-callout-title-text"' : '' ) . '>';
 
-		echo '<span' . ( empty( $this->settings->link ) ? ' class="fl-callout-title-text"' : '' ) . '>';
+			if ( ! empty( $this->settings->link ) ) {
+				echo '<a href="' . $this->settings->link . '" target="' . $this->settings->link_target . '" class="fl-callout-title-link fl-callout-title-text">';
+			}
 
-		if ( ! empty( $this->settings->link ) ) {
-			echo '<a href="' . $this->settings->link . '" target="' . $this->settings->link_target . '" class="fl-callout-title-link fl-callout-title-text">';
+			echo $this->settings->title;
+
+			if ( ! empty( $this->settings->link ) ) {
+				echo '</a>';
+			}
+
+			echo '</span>';
 		}
-
-		echo $this->settings->title;
-
-		if ( ! empty( $this->settings->link ) ) {
-			echo '</a>';
-		}
-
-		echo '</span>';
-
+		
 		$this->render_image( 'right-title' );
 
 		echo '</' . $this->settings->title_tag . '>';
+		
+		if ( ! empty( $this->settings->subtitle ) ) {
+			echo '<h5 class="fl-callout-subtitle">' . $this->settings->subtitle . '</h5>';
+		}
+		echo '</div></div>';
 	}
 
 	/**
@@ -92,6 +100,10 @@ class FLCalloutModule extends FLBuilderModule {
 	 */
 	public function render_text() {
 		global $wp_embed;
+		
+		if ( empty( $this->settings->text ) ) {
+			return;
+		}
 
 		echo '<div class="fl-callout-text">' . wpautop( $wp_embed->autoembed( $this->settings->text ) ) . '</div>';
 	}
@@ -117,7 +129,8 @@ class FLCalloutModule extends FLBuilderModule {
 				'button_size'      => $this->settings->button_size,
 				'button_width'     => $this->settings->button_width,
 				'button_color'     => $this->settings->button_color,
-				'button_text'      => $this->settings->button_text,
+				'button_text'      => $this->settings->cta_text,
+				'button_align'     => $this->settings->button_align,
 				'icon'             => $this->settings->btn_icon,
 				'icon_position'    => $this->settings->btn_icon_position,
 				'icon_animation'   => $this->settings->btn_icon_animation,

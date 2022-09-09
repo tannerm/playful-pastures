@@ -2,18 +2,7 @@
 
 // Width, Alignment, Space Between buttons
 
-$width = '';
-if ( '' === $settings->width ) {
-	$width = '100%';
-} elseif ( 'custom' === $settings->width ) {
-	$width = $settings->custom_width . $settings->custom_width_unit;
-}
 ?>
-
-.fl-node-<?php echo $id; ?> .fl-button-group-layout-vertical .fl-button-group-buttons a.fl-button,
-.fl-node-<?php echo $id; ?> .fl-button-group-layout-horizontal .fl-button-group-buttons a.fl-button {
-	width: <?php echo $width; ?>;
-}
 
 .fl-node-<?php echo $id; ?> .fl-button-group-layout-horizontal .fl-button-group-buttons {
 	<?php
@@ -26,7 +15,8 @@ if ( '' === $settings->width ) {
 		$button_group_horiz_align = 'flex-end';
 	}
 	?>
-	justify-content: <?php echo $button_group_horiz_align; ?>
+	justify-content: <?php echo $button_group_horiz_align; ?>;
+	align-items: flex-end;
 }
 
 <?php
@@ -86,7 +76,7 @@ FLBuilderCSS::dimension_field_rule( array(
 ) );
 
 // Text (Color, Typography, etc)
-if ( ! empty( $settings->text_color ) ) :
+if ( 0 && ! empty( $settings->text_color ) ) :
 	?>
 	.fl-builder-content .fl-node-<?php echo $id; ?> .fl-button-group a.fl-button > span,
 	.fl-builder-content .fl-node-<?php echo $id; ?> .fl-button-group a.fl-button > i {
@@ -94,7 +84,7 @@ if ( ! empty( $settings->text_color ) ) :
 	}
 <?php endif; ?>
 
-<?php if ( ! empty( $settings->text_hover_color ) ) : ?>
+<?php if ( 0 && ! empty( $settings->text_hover_color ) ) : ?>
 	.fl-builder-content .fl-node-<?php echo $id; ?> .fl-button-group a.fl-button:hover > span,
 	.fl-builder-content .fl-node-<?php echo $id; ?> .fl-button-group a.fl-button:focus > span,
 	.fl-builder-content .fl-node-<?php echo $id; ?> .fl-button-group a.fl-button:hover > i,
@@ -105,32 +95,32 @@ if ( ! empty( $settings->text_color ) ) :
 
 <?php
 // Typography
-FLBuilderCSS::typography_field_rule( array(
-	'settings'     => $settings,
-	'setting_name' => 'typography',
-	'selector'     => ".fl-builder-content .fl-node-$id .fl-button-group a.fl-button, .fl-builder-content .fl-node-$id .fl-button-group a.fl-button:visited",
-) );
+//FLBuilderCSS::typography_field_rule( array(
+//	'settings'     => $settings,
+//	'setting_name' => 'typography',
+//	'selector'     => ".fl-builder-content .fl-node-$id .fl-button-group a.fl-button, .fl-builder-content .fl-node-$id .fl-button-group a.fl-button:visited",
+//) );
 
 // Button Padding
-FLBuilderCSS::dimension_field_rule( array(
-	'settings'     => $settings,
-	'setting_name' => 'button_padding',
-	'selector'     => ".fl-builder-content .fl-node-$id .fl-button-group .fl-button-group-buttons .fl-button-group-button a.fl-button",
-	'unit'         => 'px',
-	'props'        => array(
-		'padding-top'    => 'button_padding_top',
-		'padding-right'  => 'button_padding_right',
-		'padding-bottom' => 'button_padding_bottom',
-		'padding-left'   => 'button_padding_left',
-	),
-) );
+//FLBuilderCSS::dimension_field_rule( array(
+//	'settings'     => $settings,
+//	'setting_name' => 'button_padding',
+//	'selector'     => ".fl-builder-content .fl-node-$id .fl-button-group .fl-button-group-buttons .fl-button-group-button a.fl-button",
+//	'unit'         => 'px',
+//	'props'        => array(
+//		'padding-top'    => 'button_padding_top',
+//		'padding-right'  => 'button_padding_right',
+//		'padding-bottom' => 'button_padding_bottom',
+//		'padding-left'   => 'button_padding_left',
+//	),
+//) );
 
 // Container Padding
 FLBuilderCSS::dimension_field_rule( array(
 	'settings'     => $settings,
 	'setting_name' => 'padding',
 	'selector'     => ".fl-builder-content .fl-node-$id .fl-button-group .fl-button-group-buttons",
-	'unit'         => 'px',
+	'unit'         => 'em',
 	'props'        => array(
 		'padding-top'    => 'padding_top',
 		'padding-right'  => 'padding_right',
@@ -151,7 +141,7 @@ if ( empty( $settings->bg_color ) && 'gradient' === $settings->style ) {
 
 // Background Gradient
 $use_default_button_group_border = false;
-if ( ! empty( $settings->bg_color ) ) :
+if ( 0 && ! empty( $settings->bg_color ) ) :
 	$use_default_button_group_border = empty( $settings->border['style'] )
 		&& empty( $settings->border['color'] )
 		&& empty( $settings->border['width']['top'] )
@@ -177,7 +167,7 @@ if ( ! empty( $settings->bg_color ) ) :
 endif;
 
 // Background Hover Gradient
-if ( ! empty( $settings->bg_hover_color ) ) :
+if ( 0 && ! empty( $settings->bg_hover_color ) ) :
 	$bg_hover_grad_start = FLBuilderColor::adjust_brightness( $settings->bg_hover_color, 30, 'lighten' );
 	?>
 .fl-builder-content .fl-node-<?php echo $id; ?> .fl-button-group-buttons a.fl-button:hover,
@@ -193,39 +183,40 @@ if ( ! empty( $settings->bg_hover_color ) ) :
 endif;
 
 // Border - Settings
-FLBuilderCSS::border_field_rule( array(
-	'settings'     => $settings,
-	'setting_name' => 'border',
-	'selector'     => ".fl-builder-content .fl-node-$id .fl-button-group-buttons a.fl-button",
-) );
+//FLBuilderCSS::border_field_rule( array(
+//	'settings'     => $settings,
+//	'setting_name' => 'border',
+//	'selector'     => ".fl-builder-content .fl-node-$id .fl-button-group-buttons a.fl-button",
+//) );
 
 // Border - Hover Settings
-if ( ! empty( $settings->border_hover_color ) && is_array( $settings->border ) ) {
+if ( 0 && ! empty( $settings->border_hover_color ) && is_array( $settings->border ) ) {
 	$settings->border['color'] = $settings->border_hover_color;
 }
 
-FLBuilderCSS::border_field_rule( array(
-	'settings'     => $settings,
-	'setting_name' => 'border',
-	'selector'     => ".fl-builder-content .fl-node-$id .fl-button-group-buttons a.fl-button:hover",
-) );
+//FLBuilderCSS::border_field_rule( array(
+//	'settings'     => $settings,
+//	'setting_name' => 'border',
+//	'selector'     => ".fl-builder-content .fl-node-$id .fl-button-group-buttons a.fl-button:hover",
+//) );
 
 // Default background color for gradient styles.
-if ( empty( $settings->bg_color ) && 'gradient' === $settings->style ) {
+if ( 0 && empty( $settings->bg_color ) && 'gradient' === $settings->style ) {
 	$settings->bg_color = 'a3a3a3';
 }
 
 // Border - Default
-FLBuilderCSS::rule( array(
-	'selector' => ".fl-node-$id .fl-button-group-buttons a.fl-button, .fl-node-$id .fl-button-group-buttons a.fl-button:visited",
-	'enabled'  => ! empty( $settings->bg_color ) && 'gradient' === $settings->style,
-	'props'    => array(
-		'border' => '1px solid ' . FLBuilderColor::hex_or_rgb( FLBuilderColor::adjust_brightness( $settings->bg_color, 12, 'darken' ) ),
-	),
-) );
+//FLBuilderCSS::rule( array(
+//	'selector' => ".fl-node-$id .fl-button-group-buttons a.fl-button, .fl-node-$id .fl-button-group-buttons a.fl-button:visited",
+//	'enabled'  => ! empty( $settings->bg_color ) && 'gradient' === $settings->style,
+//	'props'    => array(
+//		'border' => '1px solid ' . FLBuilderColor::hex_or_rgb( FLBuilderColor::adjust_brightness( $settings->bg_color, 12, 'darken' ) ),
+//	),
+//) );
 
 // Style for the individual button in the group.
 for ( $i = 0; $i < count( $settings->items ); $i++ ) :
+	continue;
 	$button_group_button_id = "#fl-button-group-button-$id-$i";
 
 	if ( ! is_object( $settings->items[ $i ] ) ) {
@@ -237,7 +228,7 @@ for ( $i = 0; $i < count( $settings->items ); $i++ ) :
 		'settings'     => $settings->items[ $i ],
 		'setting_name' => 'padding',
 		'selector'     => "$button_group_button_id a.fl-button",
-		'unit'         => 'px',
+		'unit'         => 'em',
 		'props'        => array(
 			'padding-top'    => 'padding_top',
 			'padding-right'  => 'padding_right',

@@ -2,20 +2,20 @@
 
 $button_node_id = "fl-node-$id";
 
+if ( empty( $settings->button_text ) ) {
+	$settings->button_text = $settings->text;
+}
+
 if ( isset( $settings->id ) && ! empty( $settings->id ) ) {
 	$button_node_id = $settings->id;
 }
 
 $button_classes = 'fl-button ';
 
-if ( 'enable' == $settings->icon_animation ) {
-	$button_classes .= 'fl-button-icon-animation ';
-}
-
 $button_classes .= $settings->button_style . ' ' . $settings->button_size . ' ' . $settings->button_color . ' ' . $settings->button_text;
 
 // $button_width is no longer used
-if ( 'full' === $settings->width || 'is-fullwidth' === $settings->button_width ) {
+if ( 'full' === $settings->button_width || 'is-fullwidth' === $settings->button_width ) {
 	$button_classes .= ' is-fullwidth';
 }
 
@@ -32,6 +32,18 @@ if ( ! empty( $settings->icon_color ) ) {
 if ( ! empty( $icon_styles ) ) {
 	$icon_styles = ' style="' . $icon_styles . '"';
 }
+
+if ( 'live_watch' == $settings->click_action ) {
+	$title = array_map( 'trim', explode( '|', $settings->text ) );
+	if ( ! Church\Live::is_location_live() ) {
+		$settings->link = '/' . get_post_type_object( 'cpl_item' )->rewrite['slug'] . '/';
+		$settings->text = array_pop( $title );
+		$settings->icon = false;
+	} else {
+		$settings->text = array_shift( $title );
+	}
+}
+
 ?>
 <div class="<?php echo $module->get_classname(); ?>">
 	<?php if ( isset( $settings->click_action ) && 'lightbox' == $settings->click_action ) : ?>

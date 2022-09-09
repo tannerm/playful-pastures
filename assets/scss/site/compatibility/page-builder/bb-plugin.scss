@@ -3,12 +3,30 @@
  */
 
 @import "beaverbuilder/callout";
+@import "beaverbuilder/post-grid";
+
+div.fl-row-content-wrap {
+	padding-top: var(--cp-gap--lg);
+	padding-bottom: var(--cp-gap--lg);
+}
 
 body .fl-module {
 	p,
 	.fl-callout-title {
 		padding: 0 !important;
 	}
+	
+	//.fl-button-left {
+	//	> a.fl-button {
+	//		justify-content: flex-start;
+	//	}
+	//}
+	//
+	//.fl-button-right {
+	//	> a.fl-button {
+	//		justify-content: flex-end;
+	//	}
+	//}
 }
 
 .fl-builder-content {

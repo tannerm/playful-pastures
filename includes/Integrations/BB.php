@@ -74,11 +74,48 @@ class BB {
 			add_filter( 'body_class', [ $this, 'add_role_to_body' ] );
 			add_filter( 'admin_body_class', [ $this, 'add_role_to_body' ] );
 		}
+		
+		add_filter( 'fl_builder_loop_taxonomies', [ $this, 'custom_taxonomies' ], 10, 3 );
+		
+		add_filter( 'fl_builder_loop_query_args', [ $this, 'custom_query_args' ] );		
 
 	}
 
 	/** Actions **************************************/
 
+	/**
+	 * Custom query args for Events
+	 * 
+	 * @param $args
+	 *
+	 * @return mixed
+	 * @since  1.0.0
+	 *
+	 * @author Tanner Moushey
+	 */
+	public function custom_query_args( $args ) {
+		if ( 'tribe_events' == $args['post_type'] ) {
+			$args['eventDisplay'] = 'custom';
+
+			if ( empty( $arts['meta_query'] ) ) {
+				$args['meta_query'] = [];
+			}
+
+			$args['meta_query'][] = [
+				'key'     => '_EventStartDate',
+				'value'   => current_time( 'Y-m-d H:i' ),
+				'compare' => '>=',
+			];
+
+			if ( 'date' == $args['orderby'] ) {
+				$args['orderby']  = '_EventStartDate';
+				$args['meta_key'] = '_EventStartDate';
+			}
+		}
+
+		return $args;
+	}
+	
 	public function add_role_to_body( $classes ) {
 		$current_user = new \WP_User( get_current_user_id() );
 		$user_role    = array_shift( $current_user->roles );
@@ -385,7 +422,7 @@ class BB {
 					'is-small'  => 'Small',
 				),
 			),
-			'width'        => array(
+			'button_width'        => array(
 				'type'    => 'select',
 				'label'   => __( 'Width', 'fl-builder' ),
 				'default' => 'auto',
@@ -426,7 +463,25 @@ class BB {
 					'property' => 'width',
 				),
 			),
-			'align'        => array(
+			'button_color' => array(
+				'type'    => 'select',
+				'label'   => __( 'Button Color', 'fl-builder' ),
+				'default' => '',
+				'options' => array(
+					''               => 'Primary',
+					'is-light'        => 'Light',
+				),
+			),
+//			'button_text'  => array(
+//				'type'    => 'select',
+//				'label'   => __( 'Button Text', 'fl-builder' ),
+//				'default' => '',
+//				'options' => array(
+//					''        => 'Normal',
+//					'is-caps' => 'Uppercase',
+//				),
+//			),
+			'button_align'        => array(
 				'type'       => 'align',
 				'label'      => __( 'Align', 'fl-builder' ),
 				'default'    => 'left',
@@ -437,33 +492,28 @@ class BB {
 					'property' => 'text-align',
 				),
 			),
-//			'button_color' => array(
-//				'type'    => 'select',
-//				'label'   => __( 'Button Color', 'fl-builder' ),
-//				'default' => '',
-//				'options' => array(
-//					''               => 'Default (uses row default)',
-//					'is-teal'        => 'Teal',
-//					'is-teal-lt'     => 'Light Teal',
-//					'is-teal-dk'     => 'Dark Teal',
-//					'is-blue'        => 'Blue',
-//					'is-blue-lt'     => 'Light Blue',
-//					'is-white'       => 'White',
-//					'is-white-black' => 'White/Black',
-//					'is-white-blue'  => 'White/Blue',
-//					'is-yellow'      => 'Yellow',
-//				),
-//			),
-//			'button_text'  => array(
-//				'type'    => 'select',
-//				'label'   => __( 'Button Text', 'fl-builder' ),
-//				'default' => '',
-//				'options' => array(
-//					''        => 'Normal',
-//					'is-caps' => 'Uppercase',
-//				),
-//			),
 		);
 	}
 
+	/**
+	 * Some of our custom taxonomies are not included by default
+	 * 
+	 * @param $data
+	 * @param $taxonomies
+	 * @param $post_type
+	 *
+	 * @return mixed
+	 * @since  1.0.0
+	 *
+	 * @author Tanner Moushey
+	 */
+	public function custom_taxonomies( $data, $taxonomies, $post_type ) {
+		
+		// add locations to the query
+		if ( isset( $taxonomies['cp_location'] ) ) {
+			$data['cp_location'] = $taxonomies['cp_location'];
+		}
+		
+		return $data;
+	}
 }

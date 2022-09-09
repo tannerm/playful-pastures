@@ -163,6 +163,11 @@
 #masthead {
 	.ast-builder-grid-row-container {
 		padding: 0 !important;
+		
+		@include media-breakpoint-up( 'xxl' ) {
+			max-width: calc( var(--cp-content-width) - var(--cp-gap--md) );
+		}
+
 	}
 }
 
@@ -253,6 +258,13 @@
 			line-height: 3;
 		}
 	}
+	
+	#masthead div.ast-primary-header-bar.main-header-bar {
+		@include media-breakpoint-down( 'sm' ) {
+			padding: var(--cp-gap--sm);
+		}
+	}
+	
 }
 .site-footer-section {
 	justify-content: center;
@@ -270,7 +282,9 @@
 	--ast-global-color-0: white;
 	padding-top: 45px;
 	padding-bottom: 45px;
+	color: var(--cp-color-text-primary);
 
+	h2,
 	.widget-title {
 		--ast-global-color-1: white;
 		@extend %text-xlarge;
@@ -279,6 +293,10 @@
 		//margin-bottom: 1em;
 		//line-height: 1.5;
 	}	
+	
+	.wp-block-group {
+		padding: 0;
+	}
 }
 
 .site-above-footer-wrap,
@@ -357,6 +375,60 @@
 	}
 }
 
+.ast-mobile-popup-inner {
+	color: var(--cp-color-dark-text-primary);
+	a {
+		color: var(--cp-color-dark-text-primary);
+	}
+	
+	.main-navigation .main-header-menu a.menu-link {
+		line-height: 2.5;
+		font-weight: var(--cp-font-weight--bold);
+		text-transform: uppercase;
+	}
+	
+	.ast-header-html-2 .ast-header-html {
+		border-top: 1px solid;
+	}
+	
+	h6 {
+		text-align: left !important;
+		color: var(--cp-color-dark-text-primary);
+		max-width: 10em;
+		margin-top: var(--cp-gap--sm) !important;
+		margin-bottom: var(--cp-gap--md) !important;
+	}
+	
+	.cp-location-dropdown {
+		.dropdown-trigger {
+			display: none;
+		}
+		
+		.dropdown-menu {
+			display: block;
+			position: relative;
+			min-width: 0;
+		}
+		
+		.dropdown-content {
+			color: var(--cp-color-dark-text-primary);
+			background: transparent;
+			box-shadow: none;
+		}
+		
+		.dropdown-item {
+			padding: 0;
+		}
+		
+		.cp-button {
+			--cp-button--color: var(--cp-color-ui-secondary);
+			--cp-button--color--hover: var(--cp-color-ui-inverted-light);
+			--cp-button--bg: transparent;
+			--cp-button--bg--hover: var(--cp-color-ui-secondary);
+			--cp-button--border-color: var(--cp-button--color);
+		}
+	}
+}
 
 /* Footer menu spacing between each menu items. */
 @media (min-width: $col-md ) {

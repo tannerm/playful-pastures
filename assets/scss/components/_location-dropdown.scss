@@ -9,6 +9,7 @@
 		white-space: nowrap;
 		line-height: 1.5;
 		cursor: pointer;
+		color: currentColor;
 		
 		&:hover {
 			color: var(--cp-color-text-link);

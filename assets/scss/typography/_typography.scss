@@ -1,13 +1,17 @@
 @import "headings";
 
+p {
+	font-size: var(--cp-font-size);
+}
+
 %text-xlarge, .text-xlarge {
 	@extend %text-em;
-	font-size: 1rem;
+	font-size: var(--cp-font-size);
 }
 
 %text-large, .text-large {
 	font-weight: 500;
-	font-size: 1rem;
+	font-size: var(--cp-font-size);
 }
 
 %text-small, .text-small {

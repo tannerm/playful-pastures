@@ -39,9 +39,12 @@ class Init {
 	protected function __construct() {
 		$this->actions();
 		
+		Custom::get_instance();
 		Shortcodes::get_instance();
+		Live::get_instance();
 		Integrations\BB::get_instance();
 		Integrations\TinyMCE::get_instance();
+		Integrations\EventsCalendar::get_instance();
 	}
 
 	/**
@@ -66,10 +69,52 @@ class Init {
 		add_filter( 'astra_get_option_array', [ $this, 'astra_options'], 10, 3 );
 		
 		add_filter( 'cpl_topic_object_types', function( $types ) { return [ 'cpl_item', 'cpl_item_type' ]; } );
+		add_action( 'astra_render_mobile_header_column', [ $this, 'add_mobile_logo_link_action' ], 5 );
+		add_action( 'astra_render_mobile_header_column', [ $this, 'remove_mobile_logo_link_action' ], 15 );
 	}
 
 	/** Actions **************************************/
 
+	/**
+	 * Add logo link filter 
+	 * 
+	 * @since  1.0.0
+	 *
+	 * @author Tanner Moushey
+	 */
+	public function add_mobile_logo_link_action() {
+		add_action( 'astra_logo', [ $this, 'mobile_logo_link_action' ] );
+	}
+
+	/**
+	 * Remove logo link filter
+	 * 
+	 * @since  1.0.0
+	 *
+	 * @author Tanner Moushey
+	 */
+	public function remove_mobile_logo_link_action() {
+		remove_action( 'astra_logo', [ $this, 'mobile_logo_link_action' ] );
+	}
+
+	/**
+	 * Filter the logo link on location pages
+	 * 
+	 * @param $html
+	 *
+	 * @return array|mixed|string|string[]
+	 * @since  1.0.0
+	 *
+	 * @author Tanner Moushey
+	 */
+	public function mobile_logo_link_action( $html ) {
+		if ( ! $location_id = get_query_var( 'cp_location_id' ) ) {
+			return $html;
+		} 
+
+		return str_replace( home_url( '/' ), get_the_permalink( $location_id ), $html );
+	}
+	
 	/**
 	 * @param $options_array
 	 * @param $option
@@ -84,7 +129,7 @@ class Init {
 		$options_array['font-size-h1'] = [
 			'desktop'      => '3.052',
 			'tablet'       => '3.052',
-			'mobile'       => '3.052',
+			'mobile'       => '2.25',
 			'desktop-unit' => 'em',
 			'tablet-unit'  => 'em',
 			'mobile-unit'  => 'em',
@@ -93,7 +138,7 @@ class Init {
 		$options_array['font-size-h2'] = [
 			'desktop'      => '2.441',
 			'tablet'       => '2.441',
-			'mobile'       => '2.441',
+			'mobile'       => '1.8',
 			'desktop-unit' => 'em',
 			'tablet-unit'  => 'em',
 			'mobile-unit'  => 'em',
@@ -102,7 +147,7 @@ class Init {
 		$options_array['font-size-h3'] = [
 			'desktop'      => '1.953',
 			'tablet'       => '1.953',
-			'mobile'       => '1.953',
+			'mobile'       => '1.44',
 			'desktop-unit' => 'em',
 			'tablet-unit'  => 'em',
 			'mobile-unit'  => 'em',
@@ -135,6 +180,9 @@ class Init {
 			'mobile-unit'  => 'em',
 		];
 
+		$options_array['body-font-family'] = "'Futura-PT',futura-pt,sans-serif";
+		$options_array['headings-font-family'] = "'Futura-PT',futura-pt,sans-serif";
+		
 		return $options_array;
 	}
 	
