@@ -41,8 +41,24 @@ class Custom {
 	 * @return void
 	 */
 	protected function actions() {
+		add_filter( 'cp_connect_active_chms', function() {return 'pco';});
+		add_action( 'tribe_events_single_event_after_the_content', [ $this, 'event_registration' ], 2 );
 	}
 
 	/** Actions **************************************/
 
+	/**
+	 * Show registration button if registration is active
+	 * 
+	 * @since  1.0.0
+	 *
+	 * @author Tanner Moushey
+	 */
+	public function event_registration() {
+		if ( ! $registration_url = get_post_meta( get_the_ID(), 'registration_url', true ) ) {
+			return;
+		}
+		
+		printf( '<div><a href="%s" class="cp-button is-large" target="_blank">Register Now</a></div>', $registration_url );
+	}	
 }
