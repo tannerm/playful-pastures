@@ -43,10 +43,27 @@ class Custom {
 	protected function actions() {
 		add_filter( 'cp_connect_active_chms', function() {return 'pco';});
 		add_action( 'tribe_events_single_event_after_the_content', [ $this, 'event_registration' ], 2 );
+		add_filter( 'cp_connect_pco_event_args', [ $this, 'event_args' ] );
 	}
 
 	/** Actions **************************************/
 
+	/**
+	 * Customize event details
+	 * 
+	 * @param $args
+	 *
+	 * @return mixed
+	 * @since  1.0.0
+	 *
+	 * @author Tanner Moushey
+	 */
+	public function event_args( $args ) {
+		// don't use the excerpt
+		unset( $args['post_excerpt'] );
+		return $args;
+	}
+	
 	/**
 	 * Show registration button if registration is active
 	 * 
