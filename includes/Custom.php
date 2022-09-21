@@ -44,6 +44,7 @@ class Custom {
 		add_filter( 'cp_connect_active_chms', function() {return 'pco';});
 		add_action( 'tribe_events_single_event_after_the_content', [ $this, 'event_registration' ], 2 );
 		add_filter( 'cp_connect_pco_event_args', [ $this, 'event_args' ] );
+		add_filter( 'cp_connect_process_items', [ $this, 'filter_groups' ], 10, 2 );
 	}
 
 	/** Actions **************************************/
@@ -77,5 +78,30 @@ class Custom {
 		}
 		
 		printf( '<div><a href="%s" class="cp-button is-large" target="_blank">Register Now</a></div>', $registration_url );
-	}	
+	}
+
+	/**
+	 * Remove Unique Groups from Group import
+	 * 
+	 * @param $items
+	 * @param $integration
+	 *
+	 * @return mixed
+	 * @since  1.0.0
+	 *
+	 * @author Tanner Moushey
+	 */
+	public function filter_groups( $items, $integration ) {
+		if ( 'groups' != $integration->type ) {
+			return $items;
+		}
+		
+		foreach( $items as $key => $item ) {
+			if ( in_array( 'Unique Groups', $item['group_type'] ) ) {
+				unset( $items[ $key ] );
+			}
+		}
+		
+		return $items;
+	}
 }
