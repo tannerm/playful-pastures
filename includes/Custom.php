@@ -2,6 +2,8 @@
 
 namespace Church;
 
+use CP_Library\Models\Item;
+
 /**
  * Custom functionality for this church. Should be left empty unless on a project fork.
  *
@@ -45,10 +47,38 @@ class Custom {
 		add_action( 'tribe_events_single_event_after_the_content', [ $this, 'event_registration' ], 2 );
 		add_filter( 'cp_connect_pco_event_args', [ $this, 'event_args' ] );
 		add_filter( 'cp_connect_process_items', [ $this, 'filter_groups' ], 10, 2 );
+		add_action( 'admin_init', [ $this, 'update_sermon_meta' ] );
 	}
 
 	/** Actions **************************************/
 
+	public function update_sermon_meta() {
+		if ( ! isset( $_GET['update-sermon-meta'] ) ) {
+			return;
+		}
+		
+		$sermons = get_posts( [ 'post_type' => 'cpl_item', 'posts_per_page' => 9999 ] );
+		
+		foreach( $sermons as $sermon ) {
+			$item = Item::get_instance_from_origin( $sermon->ID );
+			
+			if ( $audio = $item->get_meta_value( 'audio_url' ) ) {
+				 parse_str( parse_url( $audio )['query'], $results );
+				 
+				 if ( ! empty( $results['url'] ) ) {
+					 $item->update_meta_value( 'audio_url', $results['url'] );
+				 }
+			}
+
+			if ( $audio = $item->get_meta_value( 'video_url' ) ) {
+				parse_str( parse_url( $audio )['query'], $results );
+
+				if ( ! empty( $results['url'] ) ) {
+					$item->update_meta_value( 'video_url', $results['url'] );
+				}
+			}
+		}
+	}
 	/**
 	 * Customize event details
 	 * 
